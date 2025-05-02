@@ -1,0 +1,37 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++UVM_VERBOSITY=UVM_HIGH
++SVSEED=random
+-SPECTRE_ARGS
+"-ahdllibdir xcelium.d/AMSD/ahdlSimDB"
+-loadpli
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+-timescale
+1ns/1fs
+-ACCESS
++rwc
++UVM_TESTNAME=default_sequence_ms_test
+-AMSINPUT
+../amscf.scs
+-ANALOGCONTROL
+../amscf.scs
+-RNM_COERCE
+detailed
+-MESSAGES
+top
+-AMSELAB
+-DMS_ELAB_REPORT
+9
+-XLMODE
+./xcelium.d/run.lnx8664.24.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.24.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.24.09.d/hdl.var
+-WORK
+worklib
+-IRUNHASTOP
+-HASXLMODE

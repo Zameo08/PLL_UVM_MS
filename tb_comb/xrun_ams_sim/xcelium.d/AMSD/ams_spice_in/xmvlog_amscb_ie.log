@@ -1,0 +1,9 @@
+
+---
+
+xmvlog: *W,BDLPAT: no such path (hdl.var LIB_MAP) '<empty path>'.
+file: ./xcelium.d/AMSD/ams_spice_in/amscb_ie_crules.vams
+	connect worklib.ddiscrete_1_8_cr:vams
+		errors: 0, warnings: 0
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1

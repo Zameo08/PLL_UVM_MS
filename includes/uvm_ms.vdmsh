@@ -1,0 +1,18 @@
+//UVM messaging can be called from the digital code using these functions;
+//Upscoping defined in the section 6.8 of Verilog-AMS means the code calls
+//the function in the SV wrapper layer that then calls the UVM Macros. 
+//The system can be used in SystemVerilog implementations of the analog 
+//resource.
+//
+`ifndef uvm_ms_info   
+    `define uvm_ms_info(id,message,uvm_verbosity) uvm_ms_info   (id,message,uvm_verbosity);
+`endif    
+`ifndef uvm_ms_warning
+    `define uvm_ms_warning(id,message)            uvm_ms_warning(id,message);
+`endif    
+`ifndef uvm_ms_error
+    `define uvm_ms_error(id,message)              uvm_ms_error  (id,message);
+`endif
+`ifndef uvm_ms_fatal
+    `define uvm_ms_fatal(id,message)              uvm_ms_fatal  (id,message);
+`endif

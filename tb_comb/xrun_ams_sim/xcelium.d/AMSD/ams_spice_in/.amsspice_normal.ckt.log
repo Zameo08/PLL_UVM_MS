@@ -1,0 +1,58 @@
+
+Spectre (R) Circuit Simulator
+Version 23.1.0.063 64bit -- 10 Jun 2023
+Copyright (C) 1989-2023 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: huyen_k66   Host: edabk   HostID: 6F64197F   PID: 3382
+Memory  available: 266.3180 GB  physical: 405.4474 GB
+Linux   : CentOS Linux release 7 (Core)
+CPU Type: AMD EPYC 7402 24-Core Processor
+        Socket: Processors [Frequency]
+        0:       0 [1500.0],  1 [1500.0],  2 [1500.0],  3 [2400.0],  4 [2400.0]
+                 5 [2800.0],  6 [2400.0],  7 [1500.0],  8 [1500.0],  9 [1500.0]
+                10 [1500.0], 11 [2800.0], 12 [2800.0], 13 [1500.0], 14 [1500.0]
+                15 [1500.0], 16 [1500.0], 17 [1500.0], 18 [2800.0], 19 [1500.0]
+                20 [1500.0], 21 [2800.0], 22 [1500.0], 23 [1500.0]
+        1:      24 [1500.0], 25 [1500.0], 26 [1500.0], 27 [1500.0], 28 [1500.0]
+                29 [1500.0], 30 [1500.0], 31 [1500.0], 32 [1500.0], 33 [1500.0]
+                34 [1500.0], 35 [1500.0], 36 [1500.0], 37 [1500.0], 38 [1500.0]
+                39 [1500.0], 40 [1500.0], 41 [2800.0], 42 [1500.0], 43 [1500.0]
+                44 [1500.0], 45 [2400.0], 46 [1500.0], 47 [1500.0]
+        
+System load averages (1min, 5min, 15min) : 14.2 %, 13.6 %, 14.6 %
+
+
+Simulating `./xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt' on edabk at 2:18:46 PM, Fri May 2, 2025 (process id: 3382).
+Current working directory: /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim
+Environment variable:
+    SPECTRE_DEFAULTS=
+Command line:
+    /Cadence/SPECTRE231/tools.lnx86/bin/spectre -64  \
+        ./xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt +dcopt=0  \
+        -va,amsspice_normal -ahdllibdir  \
+        xcelium.d/AMSD/ams_spice_in/ahdlSimDB =log  \
+        ./xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt.log +mts  \
+        -I../ -token  \
+        0001AF26C83A239465DFBB2CC00A229E73C4B63DFD3B60CB2080FE71B870359768D3A13CC50411B6749FEA2FE10B0F887DC39431F37A3ED44FD9B63EAA3E399863C0B43FE90F319762DDE37AA23D31993083A82AE40B60FB2590A83DEEB8537F10B0BF07EE7F3BCD7EEFA25F885850FB7BB09702D23C6FFB2F8FA83DED3C50FB10B0A83DED3C50FB10B0C0299CE8212F78A400004279
+
+Licensing Information:
+[14:18:47.345545] Configured Lic search path (22.01-s002): 5280@192.168.32.10
+
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt
+Reading file:  /Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/amscf.scs
+Time for NDB Parsing: CPU = 160.086 ms, elapsed = 518.961 ms.
+Time accumulated: CPU = 275.289 ms, elapsed = 518.968 ms.
+Peak resident memory used = 86.8 Mbytes.
+
+Licensing Information:
+Lic Summary:
+[14:18:47.201745] Cdslmd servers:5280@192.168.32.10
+[14:18:47.201755] Feature usage summary:
+

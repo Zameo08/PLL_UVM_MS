@@ -1,0 +1,45 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module pll_tb;
+
+  electrical fref, fout;
+  electrical gnd;
+
+  integer state;
+
+  // Parameters
+  parameter real fref_freq = 30e3; // reference frequency 30 MHz
+  parameter real Tref = 1.0 / fref_freq; // reference period
+
+  pll pll_inst (
+    .fref(fref),
+    .fout(fout)
+  );
+
+  // Ground
+  ground gnd;
+
+  analog begin
+    @(initial_step) state = 0;
+    // generate square pulse 30MHz
+    //V(fref) <+ transition (1.8,0,60p,60p);
+    // V(fref) <+ sin(2.0 * `M_PI * fref_freq * $abstime);
+    //$bound_step(1/(10*fref_freq));
+    // V(a) <+ sin(2.0 * 3.14 * fref_freq * $abstime);
+    // V(fref) == (V(a) > 0.0) ? 1.0 : 0.0;
+    @(timer(0, 1/(2*fref_freq))) state = !state;
+    V(fref) <+ transition(state, 0);
+  end
+
+  // analog begin
+  //   if ($abstime > sim_time) begin
+  //     $strobe("Simulation finished at %f s", $abstime);
+  //     $finish;
+  //   end
+  //   else begin
+  //     $strobe("Time = %f ns, fref = %f V, fout = %f V", $abstime*1e9, V(fref), V(fout));
+  //   end
+  // end
+
+endmodule

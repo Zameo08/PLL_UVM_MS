@@ -1,0 +1,11 @@
+//
+
+simulator lang=spectre
+
+global 0
+
+amsd {
+  ie vsup=1.8
+}
+
+tran tran stop=1ms

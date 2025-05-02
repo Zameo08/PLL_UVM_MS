@@ -1,0 +1,5 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(02May2025:14:18:40):( xrun -f ../xrun_ams.f )&&(./xcelium.d/env.d/env.history.02May2025_14_18_40)

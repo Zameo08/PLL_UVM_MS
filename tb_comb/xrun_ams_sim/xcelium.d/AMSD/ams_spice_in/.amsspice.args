@@ -1,0 +1,10 @@
+-incdir
+../../uvc_lib/osc/sv/
+-incdir
+../../uvc_lib/registers/sv/
+-incdir
+../../includes/
+-incdir
+../../src_vams/
+-incdir
+../

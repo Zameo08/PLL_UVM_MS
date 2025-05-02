@@ -1,0 +1,29 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-RUNMODE
+-VTIMESCALE
+1ns/1fs
+-DEFINE
+UVM_AMS
+-I_INCDIR
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-UPDATE
+-CDSLIB
+./xcelium.d/run.lnx8664.24.09.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.24.09.d/hdlrun.var
+-amscommfile
+./xcelium.d/AMSD/ams_spice_in/amscomm.list
+-work
+worklib
+-UVMNOSINGLESTEP
+-define
+UVM_PLI
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src/uvm_pkg.sv
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/cdns_uvm_pkg.sv

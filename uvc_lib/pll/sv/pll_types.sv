@@ -1,0 +1,1 @@
+typedef enum bit {PLL_MS_DRIVE, PLL_MS_SAMPLE} pll_ms_data_type_e;

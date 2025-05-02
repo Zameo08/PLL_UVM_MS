@@ -1,0 +1,52 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module pll_wrapper (
+  input  electrical fref,
+  output electrical fout,
+  output electrical locked,    
+  output electrical vc_out,    
+  output electrical fdiv_out    
+);
+
+  // internal signal
+  electrical up, dn, upb, dnb;
+  electrical vc;
+  electrical fdiv;
+  electrical gnd;
+
+  pll pll_inst (
+    .fref(fref),
+    .fout(fout)
+  );
+
+  // alias
+  alias vc_out = vc;
+  alias fdiv_out = fdiv;
+
+  // lock time measurement
+  real lock_threshold = 0.01;     // |up| & |dn| < 10mV ok
+  real stable_time = 5u;          // stable in 5u means lock
+  real last_unstable_time;
+  integer is_locked;
+
+  analog begin
+    @(initial_step) begin
+      is_locked = 0;
+      last_unstable_time = $abstime;
+    end
+
+    @(timer(10n)) begin
+      if (abs(V(up)) < lock_threshold && abs(V(dn)) < lock_threshold) begin
+        if (($abstime - last_unstable_time) > stable_time)
+          is_locked = 1;
+      end else begin
+        last_unstable_time = $abstime;
+        is_locked = 0;
+      end
+    end
+
+    V(locked) <+ transition(is_locked, 0, 1n);
+  end
+
+endmodule

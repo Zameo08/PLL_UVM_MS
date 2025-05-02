@@ -1,0 +1,18 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/huyen_k66/Documents/PLL_UVM_MS/includes/uvm_ms_pkg.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/sv/osc_pkg.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/registers/sv/registers_pkg.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/sv/osc_bridge.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/vams/osc_bridge_core.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/sv/osc_if.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/registers/sv/registers_if.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/CP.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/frequency_divider.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/PFD.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/VCO.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/pll.vams
+/home/huyen_k66/Documents/PLL_UVM_MS/src_dig/registers.sv
+/home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/top.sv

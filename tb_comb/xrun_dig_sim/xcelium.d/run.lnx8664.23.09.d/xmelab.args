@@ -1,0 +1,29 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++UVM_VERBOSITY=UVM_MEDIUM
++SVSEED=random
+-loadpli
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+-timescale
+1ns/1fs
+-ACCESS
++rwc
++UVM_TESTNAME=default_sequence_test
+-RNM_COERCE
+detailed
+-no_analogsolver
+-MESSAGES
+top
+-XLMODE
+./xcelium.d/run.lnx8664.23.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.23.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.09.d/hdl.var
+-WORK
+worklib
+-IRUNHASTOP
+-HASXLMODE

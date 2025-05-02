@@ -1,0 +1,50 @@
+characteristics to measure
++ input threshold voltage
++ PLL lock time
++ output threshold voltage
++ Phase error
++ jitter time
++ power
+
+
+pll_if.sv: Interface này kết nối testbench với DUT qua bridge, tập trung vào tín hiệu đầu vào (fref) và đầu ra (fout).
+
+pll_types.sv: Định nghĩa kiểu dữ liệu cho giao dịch mixed-signal.
+
+pll_transaction.sv: Transaction cơ bản cho PLL, tập trung vào tần số tham chiếu.
+
+pll_ms_transaction.sv: Transaction mixed-signal, bao gồm các tham số để điều khiển tín hiệu và đo lường.
+
+pll_bridge_core.vams: Bridge core tạo tín hiệu tham chiếu (fref) và lấy mẫu tín hiệu đầu ra (fout) để đo tần số, jitter, và lock time.
+
+pll_bridge_proxy.sv: Proxy kết nối bridge với UVM components.
+
+pll_sequencer.sv: Sequencer cho PLL transaction.
+
+pll_base_seq.sv: Base sequence cho PLL.
+
+pll_base_ms_seq.sv: Base sequence cho mixed-signal transaction.
+
+pll_nested_seq.sv: Nested sequence để tạo nhiều giao dịch liên tiếp.
+
+pll_ms_source_transaction_seq.sv: Sequence cho một giao dịch mixed-signal.
+
+pll_ms_source_nested_seq.sv: Nested sequence cho mixed-signal transaction.
+
+pll_driver.sv: Driver tạo tín hiệu tham chiếu cơ bản.
+
+pll_ms_source_driver.sv: Driver cho mixed-signal, sử dụng bridge để tạo tín hiệu.
+
+pll_monitor.sv: Monitor đo tần số đầu ra cơ bản.
+
+pll_ms_source_monitor.sv: Monitor mixed-signal, lấy dữ liệu từ bridge để đo các thông số PLL.
+
+pll_agent.sv: Agent gom các thành phần lại.
+
+pll_env.sv: Environment khởi tạo agent.
+
+pll_pkg.sv: Package gom tất cả thành phần.
+
+pll_test.sv: Test khởi tạo môi trường và chạy sequence.
+
+pll_tb_top.sv: Top module kết nối DUT và testbench.

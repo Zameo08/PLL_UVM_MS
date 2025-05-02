@@ -1,0 +1,38 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-INPUT
+"@source /home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
++UVM_VERBOSITY=UVM_MEDIUM
++SVSEED=random
+-uvmhome
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+-sv_lib
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
++UVM_TESTNAME=default_sequence_test
+-SVSEED
+random
+-INPUT
+/home/huyen_k66/Documents/Cadence/UVM_MS/freq_adapter/tb_comb/probes_dig.tcl
+-RUN
+-EXIT
+-MESSAGES
+-SV_LIB
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
++EMGRLOG
+xrun.log
+-XLSTIME
+1743150659
+-XLKEEP
+-XLMODE
+./xcelium.d/run.lnx8664.23.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.23.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.09.d/hdl.var
+-XLNAME
+xrun
+-XLVERSION
+"TOOL:	xrun(64)	23.09-s001"

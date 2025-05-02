@@ -1,0 +1,6 @@
+rm -rf  xrun_dig_sim
+mkdir   xrun_dig_sim
+cd      xrun_dig_sim
+xrun -f ../xrun_dig.f
+cd ..
+

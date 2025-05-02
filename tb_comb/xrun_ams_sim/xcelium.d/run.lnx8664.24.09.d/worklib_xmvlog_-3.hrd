@@ -1,0 +1,24 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-VTIMESCALE
+1ns/1fs
+-INCDIR
+../../uvc_lib/osc/sv/
+-INCDIR
+../../uvc_lib/registers/sv/
+-INCDIR
+../../includes/
+-INCDIR
+../../src_vams/
+-DEFINE
+UVM_AMS
+-INCDIR
+../
+-I_INCDIR
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-I_INCDIR
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv

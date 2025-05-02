@@ -1,0 +1,89 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module pll(fref, fout);
+
+  input fref;
+  output fout;
+
+  electrical fref, fout;
+
+  electrical up, dn, upb, dnb;   // signal from PFD
+  electrical vc;                 // voltage from cp to vco
+  electrical fdiv;        
+  electrical gnd;
+
+  // Phase Frequency Detector (PFD)
+  PFD pfd_inst (
+    .up(up), .dn(dn),
+    .upb(upb), .dnb(dnb),
+    .fref(fref),
+    .fdiv(fdiv)
+  );
+
+  // Charge Pump (CP)
+  CP cp_inst (
+    .pout(vc), .nout(gnd),
+    .up(up), .dn(dn)
+  );
+
+  // Voltage-Controlled Oscillator (VCO)
+  VCO vco_inst (
+    .vin(vc),
+    .out(fout)
+  );
+
+  // Frequency Divider
+  frequency_divider div_inst (
+    .clk(fout),
+    .vout(fdiv)
+  );
+
+  // Ground
+  ground gnd;
+
+endmodule
+
+
+// `include "constants.vams"
+// `include "disciplines.vams"
+
+// module pll(fref, fout);
+
+//   input fref;
+//   output fout;
+
+//   electrical fref, fout;
+
+//   electrical up, dn, upb, dnb;
+//   electrical vc;           // voltage CP → VCO
+//   electrical fdiv;         // output of frequency divider
+//   electrical vdd, gnd; 
+
+//   //phase frequency detector
+//   PFD pfd_inst (
+//     .up(up), .dn(dn),
+//     .upb(upb), .dnb(dnb),
+//     .fref(fref),
+//     .fdiv(fdiv)
+//   );
+
+//   // Charge Pump
+//   CP cp_inst (
+//     .pout(vc), .nout(gnd),
+//     .up(up), .dn(dn)
+//   );
+
+//   // VCO
+//   VCO vco_inst (
+//     .vin(vc),
+//     .out(fout)
+//   );
+
+//   // Frequency Divider
+//   frequency_divider div_inst (
+//     .clk(fout),
+//     .vout(fdiv)
+//   );
+
+// endmodule

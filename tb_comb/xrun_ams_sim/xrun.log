@@ -1,0 +1,188 @@
+xrun(64): 24.09-s007: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s007: Started on May 02, 2025 at 14:18:40 +07
+xrun
+	-f ../xrun_ams.f
+		-64
+		-timescale 1ns/1fs
+		-vtimescale 1ns/1fs
+		-access +rwc
+		-uvm
+		+UVM_VERBOSITY=UVM_HIGH
+		+UVM_TESTNAME=default_sequence_ms_test
+		-incdir ../../uvc_lib/osc/sv/
+		-incdir ../../uvc_lib/registers/sv/
+		-incdir ../../includes/
+		../../includes/uvm_ms_pkg.sv
+		../../uvc_lib/osc/sv/osc_pkg.sv
+		../../uvc_lib/registers/sv/registers_pkg.sv
+		../../uvc_lib/osc/sv/osc_bridge.sv
+		../../uvc_lib/osc/vams/osc_bridge_core.vams
+		../../uvc_lib/osc/sv/osc_if.sv
+		../../uvc_lib/registers/sv/registers_if.sv
+		-incdir ../../src_vams/
+		../../src_vams/CP.vams
+		../../src_vams/frequency_divider.vams
+		../../src_vams/PFD.vams
+		../../src_vams/VCO.vams
+		../../src_vams/pll.vams
+		../../src_dig/registers.sv
+		-define UVM_AMS
+		-incdir ../
+		../top.sv
+		-top top
+		+SVSEED=random
+		-input /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/probes_ams.tcl
+		-run
+		-exit
+		../amscf.scs
+		-rnm_coerce detailed
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_HIGH
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d
+file: ../../includes/uvm_ms_pkg.sv
+	package worklib.uvm_ms_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_pkg.sv
+	package worklib.osc_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_pkg.sv
+	package worklib.registers_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_bridge.sv
+	module worklib.osc_bridge:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/vams/osc_bridge_core.vams
+	module worklib.osc_bridge_core:vams
+		errors: 0, warnings: 0
+	module worklib.clk_generator:vams
+		errors: 0, warnings: 0
+	module worklib.clk_detector:vams
+		errors: 0, warnings: 0
+	module worklib.osc_clk_observer:vams
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_if.sv
+	interface worklib.osc_if:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_if.sv
+	interface worklib.registers_if:sv
+		errors: 0, warnings: 0
+file: ../../src_vams/CP.vams
+	module worklib.CP:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/frequency_divider.vams
+	module worklib.frequency_divider:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/PFD.vams
+	module worklib.PFD:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/VCO.vams
+	module worklib.VCO:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/pll.vams
+	module worklib.pll:vams
+		errors: 0, warnings: 0
+file: ../../src_dig/registers.sv
+	module worklib.registers:sv
+		errors: 0, warnings: 0
+file: ../top.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+xmvlog: *W,SPDUSD: Include directory ../../src_vams/ given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+AMSD Universal Connect Module UCM is enabled.
+xmelab: *N,MSFLON: Xcelium will initiate mixed signal elaboration, Reason: option -RNM_COERCE.
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		registers_pkg
+		uvm_ms_pkg
+		osc_pkg
+		cds_rnm_pkg
+		top
+	Discipline resolution Pass...
+	Doing auto-insertion of connection elements...
+	Connect Rules applied are:
+		ddiscrete_1_8_cr
+	Building instance overlay tables: .................... Done
+	Using implicit TMP libraries; associated with library worklib
+	Generating native compiled code:
+		worklib.VCO:vams <0x37b97bc1>
+			streams:   0, words:     0
+		worklib.registers:sv <0x7318b11b>
+			streams:  13, words:  4768
+		worklib.top:sv <0x07e524ec>
+			streams: 205, words: 203348
+		worklib.registers_pkg:sv <0x4429432f>
+			streams: 518, words: 664124
+		worklib.clk_generator:vams <0x5e71a610>
+			streams:   4, words:  4497
+		worklib.clk_detector:vams <0x193e7221>
+			streams:  25, words: 30161
+		worklib.osc_clk_observer:vams <0x7f3659e3>
+			streams:   4, words:  7472
+		worklib.osc_bridge:sv <0x73280650>
+			streams:  13, words: 12639
+		worklib.clk_generator:vams <0x41f7c376>
+			streams:   4, words:  4497
+		worklib.clk_detector:vams <0x20d15c61>
+			streams:  27, words: 38076
+		worklib.osc_clk_observer:vams <0x4c07e37a>
+			streams:   4, words:  7493
+		worklib.osc_bridge:sv <0x2459850e>
+			streams:  13, words: 12639
+		worklib.osc_pkg:sv <0x24508ac9>
+			streams: 910, words: 1139389
+		worklib.uvm_ms_pkg:sv <0x77887758>
+			streams:  21, words: 14540
+		worklib.registers_if:sv <0x27aceb2b>
+			streams:   2, words:  6044
+		worklib.osc_if:sv <0x156c168d>
+			streams:   5, words:  3234
+		worklib.cdns_uvm_pkg:sv <0x60366ae1>
+			streams: 172, words: 276068
+		worklib.cdns_uvmapi:svp <0x770b5ba1>
+			streams:  27, words: 30445
+		worklib.cdns_assert2uvm_pkg:sv <0x0bb444b4>
+			streams:   3, words:  1761
+		worklib.uvm_pkg:sv <0x4b634f31>
+			streams: 4540, words: 7189650
+		worklib.osc_bridge_core:vams <0x4745105c>
+			streams:   7, words:   783
+		worklib.osc_bridge_core:vams <0x70fcf2a0>
+			streams:   7, words:   783
+		connectLib.uE2L:module <0x55ff702c>
+			streams:  27, words: 13232
+		connectLib.uL2E:module <0x1187670b>
+			streams:  38, words: 22220
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                        Instances  Unique
+		Modules:                       19      33
+		Interfaces:                     3       2
+		Verilog packages:               8       9
+		Registers:                 16,429  11,264
+		Scalar wires:                  49       -
+		Vectored wires:                24       -
+		Named events:                  10      17
+		Always blocks:                 51     119
+		Initial blocks:               425     386
+		Parallel blocks:               41      39
+		Cont. assignments:             34      57
+		Pseudo assignments:            27       -
+		Interconnect:                  25       -
+		Assertions:                     2       2
+		Covergroup Instances:           0       3
+		Compilation units:              0       3
+		SV Class declarations:        225     338
+		SV Class specializations:     471     471
+		Process Clocks:                 1       1
+		Simulation timescale:         1fs
+	Writing initial simulation snapshot: worklib.top:sv

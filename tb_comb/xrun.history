@@ -1,0 +1,2 @@
+#e1(24Apr2025:21:42:38): source ./xcelium.d/env.d/env.history.24Apr2025_21_42_38
+s1(24Apr2025:21:42:38):  xrun -uvm -timescale 1ns/1ps ../../src_dig/registers.sv ../../uvc_lib/registers/sv/registers_if.sv ../top.sv 

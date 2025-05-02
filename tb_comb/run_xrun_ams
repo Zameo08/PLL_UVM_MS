@@ -1,0 +1,6 @@
+rm -rf  xrun_ams_sim
+mkdir   xrun_ams_sim
+cd      xrun_ams_sim
+xrun -f ../xrun_ams.f
+cd ..
+

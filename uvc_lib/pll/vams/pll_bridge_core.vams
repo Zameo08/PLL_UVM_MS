@@ -1,0 +1,239 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module pll_bridge_core import cds_rnm_pkg::*; (
+  inout wreal4state fref,
+  input wreal4state fout
+);
+
+  parameter passive = 0;
+
+  // Registers driven by UVM Driver
+  real delay_in;
+  bit [31:0] duration_in;
+  bit sampling_do;
+
+  // Registers read by UVM Monitor
+  bit sampling_done;
+  real freq_out;
+  real lock_time_out;
+  real jitter_rms_out;
+
+  // PLL control
+  real ampl_in;
+  real bias_in;
+  real freq_in;
+  reg enable;
+
+  reg driver_on;
+  initial driver_on = 1;
+
+  // Driver block
+  clk_generator driver(.enable(enable), .clk(fref), .ampl_in(ampl_in), .bias_in(bias_in), .freq_in(freq_in));
+
+  // Sampler block
+  pll_detector #(.passive(passive)) sampler(.clk(fref), .clk_out(fout), .delay(delay_in), .duration(duration_in),
+    .sampling_do(sampling_do), .sampling_done(sampling_done), .freq(freq_out), .lock_time(lock_time_out), .jitter_rms(jitter_rms_out));
+
+endmodule
+
+module clk_generator import cds_rnm_pkg::*; (
+  output wreal4state clk,
+  input wire enable,
+  input wreal4state ampl_in,
+  input wreal4state bias_in,
+  input wreal4state freq_in
+);
+
+  import uvm_pkg::*;
+  `include "uvm_ms.vdmsh"
+
+  reg control_good;
+  real v_clk;
+  real out_period;
+
+  initial begin
+    control_good = 0;
+  end
+
+  always @(freq_in, ampl_in, enable) begin
+    if (enable == 1 && freq_in != 0 && ampl_in != 0) begin
+      out_period = 1e9 / freq_in;
+      control_good = 1;
+      `uvm_ms_info("FREQ_UPDATE", $sformatf("Bridge generating fref with freq=%e Hz period=%e ns", freq_in, out_period), UVM_MEDIUM)
+    end else begin
+      out_period = 0;
+      control_good = 0;
+    end
+  end
+
+  always begin
+    if (out_period != 0) begin
+      v_clk = ampl_in;
+      #(out_period/2.0);
+      v_clk = -ampl_in;
+      #(out_period/2.0);
+    end else begin
+      v_clk = 0;
+      @(out_period);
+    end
+  end
+
+  assign clk = control_good ? (bias_in + (enable * v_clk)) : `wrealZState;
+
+endmodule
+
+module pll_detector import cds_rnm_pkg::*; (
+  input wreal4state clk,
+  input wreal4state clk_out,
+  input wreal4state delay,
+  input wire [31:0] duration,
+  input wire sampling_do,
+  output reg sampling_done,
+  output wreal4state freq,
+  output wreal4state lock_time,
+  output wreal4state jitter_rms
+);
+
+  import uvm_pkg::*;
+  `include "uvm_ms.vdmsh"
+
+  parameter passive = 0;
+  parameter real vth = 0.5;
+  parameter real timeout_ns = 200;
+  parameter real t_tol = 0.01e-9;
+  parameter real tsamp_nom_ns = 0.1;
+
+  real period_r;
+  real freq_r;
+  real lock_time_r;
+  real jitter_rms_r;
+
+  real clk_hi_start, clk_lo_start;
+  real clk_hi_time, clk_lo_time;
+  real last_time;
+  real period_sum, period_sq_sum;
+  integer sample_counter, duration_counter;
+  integer lock_counter;
+
+  reg [31:0] duration_int;
+  real delay_int;
+
+  assign duration_int = passive ? 32'd64 : duration;
+  assign delay_int = passive ? 1.1 : delay;
+  wire duration_complete;
+  assign duration_complete = (duration_counter >= duration_int);
+
+  assign clk_tracker = (clk_out > vth);
+
+  assign freq = freq_r;
+  assign lock_time = lock_time_r;
+  assign jitter_rms = jitter_rms_r;
+
+  initial begin
+    sampling_done = 0;
+    freq_r = 0;
+    lock_time_r = 0;
+    jitter_rms_r = 0;
+    sample_counter = 0;
+    duration_counter = 0;
+    lock_counter = 0;
+    period_sum = 0;
+    period_sq_sum = 0;
+  end
+
+  always @(posedge sampling_do) begin
+    sampling_done = 0;
+    duration_counter = 0;
+    sample_counter = 0;
+    lock_counter = 0;
+    period_sum = 0;
+    period_sq_sum = 0;
+    clk_hi_time = -1.0;
+    clk_lo_time = -1.0;
+    last_time = $realtime;
+    period_r = 0;
+    freq_r = 0;
+    lock_time_r = 0;
+    jitter_rms_r = 0;
+
+    #(delay_int);
+
+    fork
+      begin : measure_freq_and_jitter
+        while (duration_counter < duration_int) begin
+          @(posedge clk_tracker);
+          clk_hi_start = $realtime;
+          if (clk_lo_start > -1.0)
+            clk_lo_time = $realtime - clk_lo_start;
+
+          if (sample_counter == 1)
+            period_r = clk_hi_time + clk_lo_time;
+          else if (sample_counter > 1)
+            period_r = ((sample_counter - 1) * period_r + (clk_hi_time + clk_lo_time)) / sample_counter;
+
+          period_sum = period_sum + period_r;
+          period_sq_sum = period_sq_sum + (period_r * period_r);
+          sample_counter = sample_counter + 1;
+
+          @(negedge clk_tracker);
+          clk_lo_start = $realtime;
+          if (clk_hi_start > -1.0)
+            clk_hi_time = $realtime - clk_hi_start;
+
+          duration_counter = duration_counter + 1;
+        end
+
+        // Tính tần số
+        if (sample_counter > 1) begin
+          freq_r = 1e9 / (period_sum / sample_counter); // Hz
+          // Tính jitter RMS
+          if (sample_counter > 2) begin
+            real mean_period = period_sum / sample_counter;
+            real mean_period_sq = period_sq_sum / sample_counter;
+            jitter_rms_r = sqrt(mean_period_sq - (mean_period * mean_period)) * 1e12; // ps
+          end
+        end
+      end
+
+      begin : measure_lock_time
+        real target_freq = 64 * freq_r; // Vì divider N=64
+        real freq_measured;
+        real freq_error;
+        while (lock_counter < 10) begin
+          @(posedge clk_tracker);
+          period_r = $realtime - last_time;
+          last_time = $realtime;
+          freq_measured = 1e9 / period_r;
+          freq_error = abs(freq_measured - target_freq) / target_freq;
+          if (freq_error < 0.01) // Sai số tần số < 1%
+            lock_counter = lock_counter + 1;
+          else
+            lock_counter = 0;
+        end
+        lock_time_r = $realtime - delay_int; // ns
+      end
+
+      begin : wait_for_duration
+        @(posedge duration_complete);
+        disable timeout_thread;
+      end
+
+      begin : timeout_thread
+        #(timeout_ns);
+        disable measure_freq_and_jitter;
+        disable measure_lock_time;
+        disable wait_for_duration;
+      end
+    join
+
+    if (!passive)
+      `uvm_ms_info("PLL_UPDATE", $sformatf("fout: freq=%e Hz, lock_time=%e ns, jitter_rms=%e ps", freq_r, lock_time_r, jitter_rms_r), UVM_MEDIUM)
+    sampling_done <= 1;
+  end
+
+  function real abs(input real A);
+    abs = (A < 0) ? -A : A;
+  endfunction
+
+endmodule

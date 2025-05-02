@@ -1,0 +1,438 @@
+xrun(64): 23.09-s001: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s001: Started on Mar 28, 2025 at 15:30:59 +07
+xrun
+	-f ../xrun_dig.f
+		-64
+		-timescale 1ns/1fs
+		-vtimescale 1ns/1fs
+		-access +rwc
+		-uvm
+		+UVM_VERBOSITY=UVM_MEDIUM
+		+UVM_TESTNAME=default_sequence_test
+		-incdir ../../uvc_lib/osc/sv/
+		-incdir ../../uvc_lib/registers/sv/
+		-incdir ../../includes/
+		../../includes/uvm_ms_pkg.sv
+		../../uvc_lib/osc/sv/osc_pkg.sv
+		../../uvc_lib/registers/sv/registers_pkg.sv
+		../../uvc_lib/osc/sv/osc_bridge.sv
+		../../uvc_lib/osc/sv/osc_bridge_core.sv
+		../../uvc_lib/osc/sv/osc_if.sv
+		../../uvc_lib/registers/sv/registers_if.sv
+		-incdir ../../src_dig/
+		../../src_dig/buffer_dig.sv
+		../../src_dig/clk_driver_diff_dig.sv
+		../../src_dig/freq_adapter_dig.sv
+		../../src_dig/freq_div2_dig.sv
+		../../src_dig/freq_doubler_dig.sv
+		../../src_dig/mux4to1_dig.sv
+		../../src_dig/registers.sv
+		-incdir ../
+		../top.sv
+		-top top
+		+SVSEED=random
+		-input /home/huyen_k66/Documents/Cadence/UVM_MS/freq_adapter/tb_comb/probes_dig.tcl
+		-run
+		-exit
+		-rnm_coerce detailed
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+file: ../../includes/uvm_ms_pkg.sv
+	package worklib.uvm_ms_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_pkg.sv
+	package worklib.osc_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_pkg.sv
+	package worklib.registers_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_bridge.sv
+	module worklib.osc_bridge:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_bridge_core.sv
+	module worklib.osc_bridge_core:sv
+		errors: 0, warnings: 0
+	module worklib.clk_generator:sv
+		errors: 0, warnings: 0
+	module worklib.clk_detector:sv
+		errors: 0, warnings: 0
+	module worklib.osc_clk_observer:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_if.sv
+	interface worklib.osc_if:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_if.sv
+	interface worklib.registers_if:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/buffer_dig.sv
+	module worklib.buffer:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/clk_driver_diff_dig.sv
+	module worklib.clk_driver_diff:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/freq_adapter_dig.sv
+	module worklib.frequency_adapter:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/freq_div2_dig.sv
+	module worklib.freq_div2:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/freq_doubler_dig.sv
+	module worklib.freq_doubler:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/mux4to1_dig.sv
+	module worklib.mux4to1:sv
+		errors: 0, warnings: 0
+file: ../../src_dig/registers.sv
+	module worklib.registers:sv
+		errors: 0, warnings: 0
+file: ../top.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+xmvlog: *W,SPDUSD: Include directory ../../src_dig/ given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+xmelab: *N,MSFLON: Xcelium will initiate mixed signal elaboration, Reason: option -RNM_COERCE.
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		cds_rnm_pkg
+		$unit_0x76623353
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		registers_pkg
+		uvm_ms_pkg
+		osc_pkg
+		top
+	Building instance overlay tables: .................... Done
+	Using implicit TMP libraries; associated with library worklib
+	Generating native compiled code:
+		worklib.clk_driver_diff:sv <0x63deba07>
+			streams:   2, words:   880
+		worklib.mux4to1:sv <0x730ec10b>
+			streams:   6, words:  5831
+		worklib.freq_div2:sv <0x5c7f9fbf>
+			streams:   4, words:   953
+		worklib.freq_doubler:sv <0x61746ae4>
+			streams:  10, words:  9220
+		worklib.buffer:sv <0x0308098d>
+			streams:   1, words:   165
+		worklib.frequency_adapter:sv <0x2f034bb0>
+			streams:   2, words:   817
+		worklib.registers:sv <0x1c7e9124>
+			streams:   9, words:  3256
+		worklib.top:sv <0x384cc394>
+			streams: 211, words: 182584
+		worklib.registers_pkg:sv <0x2c5d7ef8>
+			streams: 515, words: 614601
+		worklib.osc_pkg:sv <0x400f0721>
+			streams: 910, words: 1119096
+		worklib.uvm_ms_pkg:sv <0x2be5a3ec>
+			streams:  21, words: 14507
+		worklib.registers_if:sv <0x20f963e5>
+			streams:   2, words:  4942
+		worklib.osc_if:sv <0x74340dfa>
+			streams:   5, words:  1889
+		worklib.osc_if:sv <0x5a9241be>
+			streams:   5, words:  1889
+		worklib.cdns_uvm_pkg:sv <0x0d9294c5>
+			streams: 172, words: 275996
+		worklib.cdns_uvmapi:svp <0x79b94055>
+			streams:  27, words: 30300
+		worklib.cdns_assert2uvm_pkg:sv <0x474b4e25>
+			streams:   3, words:  1763
+		worklib.uvm_pkg:sv <0x357df1cb>
+			streams: 4540, words: 7098144
+		worklib.\$unit_0x76623353 :compilation_unit <0x3cce4338>
+			streams:   1, words:   320
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                      10       8
+		Interfaces:                    3       2
+		Verilog packages:              8       8
+		Registers:                 16209   10815
+		Scalar wires:                 37       -
+		Vectored wires:               23       -
+		Named events:                 10      18
+		Always blocks:                10       9
+		Initial blocks:              366     181
+		Parallel blocks:              37      38
+		Cont. assignments:            26      25
+		Pseudo assignments:           18       -
+		Assertions:                    2       2
+		Covergroup Instances:          0       2
+		Compilation units:             1       1
+		SV Class declarations:       223     337
+		SV Class specializations:    469     469
+		Process Clocks:                1       1
+		Simulation timescale:        1fs
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+SVSEED set randomly from command line: 467971403
+xcelium> source /home/edabk/Cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> source /home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -into waves_dig.shm -default -event
+Created default SHM database waves
+xcelium> probe -create -shm -all -depth all -memories
+Created probe 1
+xcelium> probe -create top -depth all -all -memories
+Created probe 2
+xcelium> set assert_stop_level never
+never
+xcelium> uvm_phase -stop_at build
+Created stop 1:8f85ffb3:uvm
+xcelium> probe -create $uvm:{uvm_test_top} -depth all -tasks -functions -uvm
+Created probe 3
+xcelium> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (23.09-s001)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0.00000 fs: reporter [RNTST] Running test default_sequence_test...
+0 FS + 4 begin-of-build
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/additions/sv/cdns_tcl.svh:739 		->cdns_uvm_data_valid;
+xcelium> run
+UVM_INFO ../freq_adpt_tb.sv(20) @ 0.00000 fs: uvm_test_top.tb [MSG] In the build phase
+UVM_INFO ../freq_adpt_scoreboard.sv(87) @ 0.00000 fs: uvm_test_top.tb.freq_adpt_sb [freq_adpt_scoreboard] COVERAGE CREATED
+UVM_INFO ../../uvc_lib/osc/sv/osc_env.sv(31) @ 0.00000 fs: uvm_test_top.tb.freq_detector [VIF_SUCCESS] virtual interface osc_if configured
+UVM_INFO ../../uvc_lib/osc/sv/osc_env.sv(31) @ 0.00000 fs: uvm_test_top.tb.freq_generator [VIF_SUCCESS] virtual interface osc_if configured
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(74) @ 0.00000 fs: uvm_test_top.tb.freq_detector.agent.monitor [CONFIG_CORRECT] Value of uvm_test_top.tb.freq_detector.agent.monitor.diff_sel = 1
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(74) @ 0.00000 fs: uvm_test_top.tb.freq_generator.agent.monitor [CONFIG_CORRECT] Value of uvm_test_top.tb.freq_generator.agent.monitor.diff_sel = 0
+UVM_INFO @ 0.00000 fs: reporter [UVMTOP] UVM testbench topology:
+-------------------------------------------------------------------------------
+Name                              Type                        Size  Value      
+-------------------------------------------------------------------------------
+uvm_test_top                      default_sequence_test       -     @2758      
+  tb                              freq_adpt_tb                -     @2848      
+    freq_adpt_sb                  freq_adpt_scoreboard        -     @3005      
+      sb_osc_det                  uvm_analysis_imp_osc_det    -     @3187      
+        recording_detail          integral                    32    'd1        
+      sb_osc_gen                  uvm_analysis_imp_osc_gen    -     @3136      
+        recording_detail          integral                    32    'd1        
+      sb_registers_in             uvm_analysis_imp_registers  -     @3085      
+        recording_detail          integral                    32    'd1        
+      coverage_control            cover_e                     1     COV_ENABLE 
+      recording_detail            integral                    32    'd1        
+    freq_detector                 osc_env                     -     @2890      
+      agent                       osc_agent                   -     @3228      
+        monitor                   osc_monitor                 -     @3271      
+          item_collected_port     uvm_analysis_port           -     @3322      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h1        
+          recording_detail        integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_PASSIVE
+        recording_detail          integral                    32    'd1        
+      agent                       osc_agent                   -     @3228      
+        monitor                   osc_monitor                 -     @3271      
+          item_collected_port     uvm_analysis_port           -     @3322      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h1        
+          recording_detail        integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_PASSIVE
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    freq_generator                osc_env                     -     @2946      
+      agent                       osc_agent                   -     @3351      
+        driver                    osc_driver                  -     @4050      
+          rsp_port                uvm_analysis_port           -     @4201      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @4152      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          period                  real                        64    0.000000   
+          recording_detail        integral                    32    'd1        
+        monitor                   osc_monitor                 -     @3386      
+          item_collected_port     uvm_analysis_port           -     @3435      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h0        
+          recording_detail        integral                    32    'd1        
+        sequencer                 osc_sequencer               -     @3465      
+          rsp_export              uvm_analysis_export         -     @3523      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @4071      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      agent                       osc_agent                   -     @3351      
+        driver                    osc_driver                  -     @4050      
+          rsp_port                uvm_analysis_port           -     @4201      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @4152      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          period                  real                        64    0.000000   
+          recording_detail        integral                    32    'd1        
+        monitor                   osc_monitor                 -     @3386      
+          item_collected_port     uvm_analysis_port           -     @3435      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h0        
+          recording_detail        integral                    32    'd1        
+        sequencer                 osc_sequencer               -     @3465      
+          rsp_export              uvm_analysis_export         -     @3523      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @4071      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    registers                     registers_env               -     @2975      
+      reg_agent                   registers_agent             -     @4257      
+        driver                    registers_driver            -     @5003      
+          rsp_port                uvm_analysis_port           -     @5154      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @5105      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          recording_detail        integral                    32    'd1        
+        monitor                   registers_monitor           -     @4292      
+          item_collected_port     uvm_analysis_port           -     @4340      
+            recording_detail      integral                    32    'd1        
+          item_ms_collected_port  uvm_analysis_port           -     @4389      
+            recording_detail      integral                    32    'd1        
+          num_pkt_col             integral                    32    'h0        
+          coverage_control        cover_e                     1     COV_ENABLE 
+          recording_detail        integral                    32    'd1        
+        sequencer                 registers_sequencer         -     @4419      
+          rsp_export              uvm_analysis_export         -     @4476      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @5024      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    recording_detail              integral                    32    'd1        
+-------------------------------------------------------------------------------
+
+SDI/Verilog Transaction Recording Facility Version 23.09-s001
+UVM_INFO ../../uvc_lib/registers/sv/registers_monitor.sv(46) @ 0.00000 fs: uvm_test_top.tb.registers.reg_agent.monitor [registers_monitor] Inside the run_phase
+UVM_INFO ../../uvc_lib/registers/sv/registers_driver.sv(31) @ 0.00000 fs: uvm_test_top.tb.registers.reg_agent.driver [registers_driver] Resetting register signals
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(79) @ 0.00000 fs: uvm_test_top.tb.freq_generator.agent.monitor [osc_monitor] Inside the run_phase
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(79) @ 0.00000 fs: uvm_test_top.tb.freq_detector.agent.monitor [osc_monitor] Inside the run_phase
+UVM_INFO ../../uvc_lib/registers/sv/registers_seqs.sv(21) @ 0.00000 fs: uvm_test_top.tb.registers.reg_agent.sequencer@@registers_1_seq [registers_1_seq] raise objection
+UVM_INFO ../../uvc_lib/osc/sv/osc_merged_sequences.sv(25) @ 0.00000 fs: uvm_test_top.tb.freq_generator.agent.sequencer@@osc_nested_seq [osc_nested_seq] raise objection
+UVM_INFO ../../uvc_lib/registers/sv/registers_seqs.sv(55) @ 0.00000 fs: uvm_test_top.tb.registers.reg_agent.sequencer@@registers_1_seq [registers_1_seq] Executing REGISTERS_1_SEQ
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 808109688.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 1665880926.163187 freq_detector 1665880926.163187, when sel_mux = 3
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 1039811123.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 270106454.355786 freq_detector 270106454.355786, when sel_mux = 1
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 1207186654.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 1840688417.468153 freq_detector 1840688417.468153, when sel_mux = 3
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 1409494495.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 1435628568.434303 freq_detector 1435628568.434303, when sel_mux = 3
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 1621530126.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 499718158.958264 freq_detector 499718158.958321, when sel_mux = 1
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 1822159926.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 485548145.011920 freq_detector 485548145.011867, when sel_mux = 1
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 2007047676.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 1929250524.756230 freq_detector 1929250524.756653, when sel_mux = 3
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 2207100365.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 1912982262.828084 freq_detector 1912982262.828916, when sel_mux = 3
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 2452198247.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 208444156.143044 freq_detector 208444156.143025, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 2642163957.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 240293581.085708 freq_detector 240293581.085603, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 2866763551.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 151722781.843264 freq_detector 151722781.843275, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 3070430399.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 154477944.874837 freq_detector 154477944.874859, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 3248573997.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 224042041.040896 freq_detector 224042041.040919, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 3440956552.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 247430679.820703 freq_detector 247430679.820731, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 3663859910.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 166478878.491697 freq_detector 166478878.491723, when sel_mux = 0
+UVM_INFO ../freq_adpt_scoreboard.sv(116) @ 3854477874.00000 fs: uvm_test_top.tb.freq_adpt_sb [PKT_COMPARE] Frequency MATCH freq_generator 190584224.505158 freq_detector 190584224.505158, when sel_mux = 0
+UVM_INFO ../../uvc_lib/osc/sv/osc_merged_sequences.sv(39) @ 4000040000.00000 fs: uvm_test_top.tb.freq_generator.agent.sequencer@@osc_nested_seq [osc_nested_seq] drop objection
+UVM_INFO ../../uvc_lib/registers/sv/registers_seqs.sv(35) @ 4799976000.00000 fs: uvm_test_top.tb.registers.reg_agent.sequencer@@registers_1_seq [registers_1_seq] drop objection
+UVM_INFO /home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 4799976000.00000 fs: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../freq_adpt_scoreboard.sv(197) @ 4799976000.00000 fs: uvm_test_top.tb.freq_adpt_sb [freq_adpt_scoreboard] Report:
+	Scoreboard: OUTPUT FREQUENCY Check Statistics 
+		Packets In: 16	 Match: 16	 Mismatch: 0	 Dropped packet: 0
+
+
+UVM_INFO ../freq_adpt_scoreboard.sv(198) @ 4799976000.00000 fs: uvm_test_top.tb.freq_adpt_sb [freq_adpt_scoreboard] Report:
+	Scoreboard: FREQ_GENERATOR Packet Statistics 
+		Packets In: 20	 Packets Dropped: 0
+
+
+UVM_INFO ../freq_adpt_scoreboard.sv(202) @ 4799976000.00000 fs: uvm_test_top.tb.freq_adpt_sb [freq_adpt_scoreboard] Status:
+
+Simulation PASSED
+
+**  Overall Coverage = xmsim: *N,COVNSM: (File: ../freq_adpt_scoreboard.sv, Line: 203):(Time: 4799976 PS + 34) Sampling of covergroup type "freq_adpt_scoreboard::input_sig_cg" (../freq_adpt_scoreboard.sv:64), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+0.000000                                 **
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(176) @ 4799976000.00000 fs: uvm_test_top.tb.freq_detector.agent.monitor [osc_monitor] 
+Report: osc_monitor collected frequency 0 times in total.
+UVM_INFO ../../uvc_lib/osc/sv/osc_driver.sv(96) @ 4799976000.00000 fs: uvm_test_top.tb.freq_generator.agent.driver [osc_driver] 
+Report: OSC driver sent 20 packets in total.
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(180) @ 4799976000.00000 fs: uvm_test_top.tb.freq_generator.agent.monitor [osc_monitor] 
+Report: osc_monitor collected frequency 0 times in total.
+UVM_INFO ../../uvc_lib/registers/sv/registers_driver.sv(75) @ 4799976000.00000 fs: uvm_test_top.tb.registers.reg_agent.driver [registers_driver] Report: registers driver sent 21 packets
+UVM_INFO ../../uvc_lib/registers/sv/registers_monitor.sv(65) @ 4799976000.00000 fs: uvm_test_top.tb.registers.reg_agent.monitor [registers_monitor] Report: registers Monitor Collected 47999 Packets
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   42
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[CONFIG_CORRECT]     2
+[MSG]     1
+[PKT_COMPARE]    16
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+[VIF_SUCCESS]     2
+[freq_adpt_scoreboard]     4
+[osc_driver]     1
+[osc_monitor]     4
+[osc_nested_seq]     2
+[registers_1_seq]     3
+[registers_driver]     2
+[registers_monitor]     2
+Simulation complete via $finish(1) at time 4799976 PS + 49
+/home/edabk/Cadence/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> exit
+TOOL:	xrun(64)	23.09-s001: Exiting on Mar 28, 2025 at 15:32:25 +07  (total: 00:01:26)

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>/servers/esd_noida/jaseem/freq_adapter/uvc_lib/osc/sv/osc_env.sv.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="systemverilog">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Comment { color: #0000ff; }
+.Constant { color: #ff00ff; }
+.Special { color: #6a5acd; }
+.Statement { color: #a52a2a; font-weight: bold; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Statement">class</span> osc_env <span class="Statement">extends</span> uvm_env<span class="Special">;</span>
+
+  <span class="Comment">// Virtual Interface variable</span>
+  <span class="Statement">virtual</span> <span class="Statement">interface</span> osc_if vif<span class="Special">;</span>
+
+  <span class="Comment">// The following two bits are used to control whether checks and coverage are</span>
+  <span class="Comment">// done both in the bus monitor class and the interface.</span>
+  <span class="Statement">bit</span> checks_enable <span class="Special">=</span> <span class="Constant">1</span><span class="Special">;</span>
+  <span class="Statement">bit</span> coverage_enable <span class="Special">=</span> <span class="Constant">1</span><span class="Special">;</span>
+
+  <span class="Comment">// Components of the environment</span>
+  osc_agent agent<span class="Special">;</span>
+
+  <span class="Comment">// Provide implementations of virtual methods such as get_type_name and create</span>
+  `uvm_component_utils_begin<span class="Special">(</span>osc_env<span class="Special">)</span>
+  	`uvm_field_object<span class="Special">(</span>agent<span class="Special">,</span> <span class="Constant">UVM_ALL_ON</span><span class="Special">)</span>
+  `uvm_component_utils_end
+
+  <span class="Comment">// Constructor - required syntax for UVM automation and utilities</span>
+  <span class="Statement">function</span> <span class="Statement">new</span><span class="Special">(</span><span class="Statement">string</span> name<span class="Special">,</span> uvm_component parent<span class="Special">);</span>
+    <span class="Statement">super</span><span class="Special">.</span><span class="Statement">new</span><span class="Special">(</span>name<span class="Special">,</span> parent<span class="Special">);</span>
+  <span class="Statement">endfunction</span> <span class="Special">:</span> <span class="Statement">new</span>
+
+  <span class="Comment">// UVM build() phase</span>
+  <span class="Statement">function</span> <span class="Statement">void</span> build_phase<span class="Special">(</span>uvm_phase phase<span class="Special">);</span>
+    <span class="Statement">super</span><span class="Special">.</span>build_phase<span class="Special">(</span>phase<span class="Special">);</span>
+    agent <span class="Special">=</span> osc_agent<span class="Special">::</span>type_id<span class="Special">::</span>create<span class="Special">(</span><span class="Constant">&quot;agent&quot;</span><span class="Special">,</span> <span class="Statement">this</span><span class="Special">);</span>
+    <span class="Statement">if</span><span class="Special">(!</span>uvm_config_db<span class="Special">#(</span><span class="Statement">virtual</span> osc_if<span class="Special">)::</span>get<span class="Special">(</span><span class="Statement">this</span><span class="Special">,</span><span class="Constant">&quot;&quot;</span><span class="Special">,</span><span class="Constant">&quot;vif&quot;</span><span class="Special">,</span>vif<span class="Special">))</span>
+	  	`uvm_error<span class="Special">(</span><span class="Constant">&quot;NOVIF&quot;</span><span class="Special">,</span><span class="Constant">&quot;virtual interface osc_if not configured&quot;</span><span class="Special">)</span>
+  	<span class="Statement">else</span>
+  	  `uvm_info<span class="Special">(</span><span class="Constant">&quot;VIF_SUCCESS&quot;</span><span class="Special">,</span><span class="Constant">&quot;virtual interface osc_if configured&quot;</span><span class="Special">,</span><span class="Constant">UVM_MEDIUM</span><span class="Special">)</span>
+  <span class="Statement">endfunction</span> <span class="Special">:</span> build_phase
+
+  <span class="Statement">extern</span> <span class="Statement">protected</span> <span class="Statement">task</span> update_vif_enables<span class="Special">();</span>
+  <span class="Statement">extern</span> <span class="Statement">virtual</span> <span class="Statement">task</span> run_phase<span class="Special">(</span>uvm_phase phase<span class="Special">);</span>
+
+<span class="Statement">endclass</span> <span class="Special">:</span> osc_env
+
+<span class="Comment">// Function to assign the checks and coverage bits</span>
+<span class="Statement">task</span> osc_env<span class="Special">::</span>update_vif_enables<span class="Special">();</span>
+  <span class="Comment">// Make assignments at time zero based upon config</span>
+  vif<span class="Special">.</span>has_checks <span class="Special">&lt;=</span> checks_enable<span class="Special">;</span>
+  vif<span class="Special">.</span>has_coverage <span class="Special">&lt;=</span> coverage_enable<span class="Special">;</span>
+  <span class="Statement">forever</span> <span class="Statement">begin</span>
+    <span class="Comment">// Make assignments whenever enables change after time zero</span>
+    <span class="Special">@(</span>checks_enable <span class="Special">||</span> coverage_enable<span class="Special">);</span>
+    vif<span class="Special">.</span>has_checks <span class="Special">&lt;=</span> checks_enable<span class="Special">;</span>
+    vif<span class="Special">.</span>has_coverage <span class="Special">&lt;=</span> coverage_enable<span class="Special">;</span>
+  <span class="Statement">end</span>
+<span class="Statement">endtask</span> <span class="Special">:</span> update_vif_enables
+
+<span class="Comment">// UVM run() phase</span>
+<span class="Statement">task</span> osc_env<span class="Special">::</span>run_phase<span class="Special">(</span>uvm_phase phase<span class="Special">);</span>
+  <span class="Statement">fork</span>
+    update_vif_enables<span class="Special">();</span>
+  <span class="Statement">join_none</span>
+  <span class="Statement">super</span><span class="Special">.</span>run_phase<span class="Special">(</span>phase<span class="Special">);</span>
+<span class="Statement">endtask</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

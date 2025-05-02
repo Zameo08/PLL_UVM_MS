@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-timescale
+1ns/1fs
+-ACCESS
++rwc
+
+top
+-RNM_COERCE
+detailed
