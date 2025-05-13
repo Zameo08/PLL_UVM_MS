@@ -1,0 +1,647 @@
+TOOL:	xrun(64)	24.09-s007: Started on May 06, 2025 at 15:49:39 +07
+xrun
+	-f ../xrun_ams.f
+		-64
+		-timescale 1ns/1fs
+		-vtimescale 1ns/1fs
+		-access +rwc
+		-uvm
+		+UVM_VERBOSITY=UVM_HIGH
+		-incdir ../../uvc_lib/osc/sv/
+		-incdir ../../uvc_lib/registers/sv/
+		-incdir ../../includes/
+		../../includes/uvm_ms_pkg.sv
+		../../uvc_lib/osc/sv/osc_pkg.sv
+		../../uvc_lib/registers/sv/registers_pkg.sv
+		../../uvc_lib/osc/sv/osc_bridge.sv
+		../../uvc_lib/osc/vams/osc_bridge_core.vams
+		../../uvc_lib/osc/sv/osc_if.sv
+		../../uvc_lib/registers/sv/registers_if.sv
+		-incdir ../../src_vams/
+		../../src_vams/CP.vams
+		../../src_vams/frequency_divider.vams
+		../../src_vams/PFD.vams
+		../../src_vams/VCO.vams
+		../../src_vams/pll.vams
+		../../src_dig/registers.sv
+		-define UVM_AMS
+		-incdir ../
+		../top.sv
+		-top top
+		+SVSEED=random
+		-input /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/probes_ams.tcl
+		-run
+		-exit
+		../amscf.scs
+		-rnm_coerce detailed
+	+UVM_TESTNAME=pll_base_test
+	-logfile logs/pll_base_test.log
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_HIGH
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d
+file: ../../includes/uvm_ms_pkg.sv
+	package worklib.uvm_ms_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_pkg.sv
+	package worklib.osc_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_pkg.sv
+	package worklib.registers_pkg:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_bridge.sv
+	module worklib.osc_bridge:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/vams/osc_bridge_core.vams
+	module worklib.osc_bridge_core:vams
+		errors: 0, warnings: 0
+	module worklib.clk_generator:vams
+		errors: 0, warnings: 0
+	module worklib.clk_detector:vams
+		errors: 0, warnings: 0
+	module worklib.osc_clk_observer:vams
+		errors: 0, warnings: 0
+file: ../../uvc_lib/osc/sv/osc_if.sv
+	interface worklib.osc_if:sv
+		errors: 0, warnings: 0
+file: ../../uvc_lib/registers/sv/registers_if.sv
+	interface worklib.registers_if:sv
+		errors: 0, warnings: 0
+file: ../../src_vams/CP.vams
+	module worklib.CP:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/frequency_divider.vams
+	module worklib.frequency_divider:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/PFD.vams
+	module worklib.PFD:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/VCO.vams
+	module worklib.VCO:vams
+		errors: 0, warnings: 0
+file: ../../src_vams/pll.vams
+	module worklib.pll:vams
+		errors: 0, warnings: 0
+file: ../../src_dig/registers.sv
+	module worklib.registers:sv
+		errors: 0, warnings: 0
+file: ../top.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+xmvlog: *W,SPDUSD: Include directory ../../src_vams/ given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+AMSD Universal Connect Module UCM is enabled.
+xmelab: *N,MSFLON: Xcelium will initiate mixed signal elaboration, Reason: option -RNM_COERCE.
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		registers_pkg
+		uvm_ms_pkg
+		osc_pkg
+		cds_rnm_pkg
+		top
+	Discipline resolution Pass...
+	Doing auto-insertion of connection elements...
+	Connect Rules applied are:
+		ddiscrete_1_8_cr
+	Building instance overlay tables: .................... Done
+	Using implicit TMP libraries; associated with library worklib
+	Generating native compiled code:
+		worklib.VCO:vams <0x37b97bc1>
+			streams:   0, words:     0
+		worklib.registers:sv <0x7318b11b>
+			streams:  13, words:  4768
+		worklib.top:sv <0x05abb95b>
+			streams: 325, words: 282187
+		worklib.registers_pkg:sv <0x49569f58>
+			streams: 518, words: 664124
+		worklib.clk_generator:vams <0x6ba6c653>
+			streams:   4, words:  4497
+		worklib.clk_detector:vams <0x66c84375>
+			streams:  25, words: 30161
+		worklib.osc_clk_observer:vams <0x754e5b9f>
+			streams:   4, words:  7472
+		worklib.osc_bridge:sv <0x30b86737>
+			streams:  13, words: 12639
+		worklib.clk_generator:vams <0x74db6949>
+			streams:   4, words:  4497
+		worklib.clk_detector:vams <0x04f40407>
+			streams:  27, words: 38076
+		worklib.osc_clk_observer:vams <0x0138a8bf>
+			streams:   4, words:  7493
+		worklib.osc_bridge:sv <0x08cf328b>
+			streams:  13, words: 12639
+		worklib.osc_pkg:sv <0x236085de>
+			streams: 1060, words: 1317921
+		worklib.uvm_ms_pkg:sv <0x22f87f56>
+			streams:  21, words: 14540
+		worklib.registers_if:sv <0x0d86f452>
+			streams:   2, words:  6044
+		worklib.osc_if:sv <0x73706904>
+			streams:   5, words:  3234
+		worklib.cdns_uvm_pkg:sv <0x1771a7b7>
+			streams: 172, words: 276068
+		worklib.cdns_uvmapi:svp <0x26de13ae>
+			streams:  27, words: 30445
+		worklib.cdns_assert2uvm_pkg:sv <0x6fc463bc>
+			streams:   3, words:  1761
+		worklib.uvm_pkg:sv <0x77540ef2>
+			streams: 4540, words: 7189650
+		worklib.osc_bridge_core:vams <0x4745105c>
+			streams:   7, words:   783
+		worklib.osc_bridge_core:vams <0x70fcf2a0>
+			streams:   7, words:   783
+		connectLib.uE2L:module <0x55ff702c>
+			streams:  27, words: 13232
+		connectLib.uL2E:module <0x1187670b>
+			streams:  38, words: 22220
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                        Instances  Unique
+		Modules:                       19      33
+		Interfaces:                     3       2
+		Verilog packages:               8       9
+		Registers:                 16,939  11,472
+		Scalar wires:                  49       -
+		Vectored wires:                24       -
+		Named events:                  10      17
+		Always blocks:                 51     119
+		Initial blocks:               461     398
+		Parallel blocks:               41      39
+		Cont. assignments:             34      57
+		Pseudo assignments:            27       -
+		Interconnect:                  25       -
+		Assertions:                     2       2
+		Covergroup Instances:           0       3
+		Compilation units:              0       3
+		SV Class declarations:        237     350
+		SV Class specializations:     495     495
+		Process Clocks:                 1       1
+		Simulation timescale:         1fs
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+SVSEED set randomly from command line: -1898920825
+[DMSINFO] Simulating with Xcelium Mixed-Signal App...
+Simulating in AMS-SIE mode...
+	Starting analog simulation engine...
+AMSD Flexible Release Matrix --- using Spectre from installation:
+    /Cadence/SPECTRE231/bin/spectre
+AMSD: Using spectre solver with arguments: -ahdllibdir xcelium.d/AMSD/ahdlSimDB.
+xcelium> source /Cadence/xcelium/2409/24.09.007/tools/xcelium/files/xmsimrc
+xcelium> source /Cadence/xcelium/2409/24.09.007/tools/xcelium/files/amsrc
+xcelium> source /Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -into waves_ams.shm -default -event
+Created default SHM database waves
+xcelium> probe -create -shm -all -depth all -memories
+xmsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+Created probe 1
+xcelium> probe -create top -depth all -all -memories
+xmsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+Created probe 2
+xcelium> set assert_stop_level never
+never
+xcelium> uvm_phase -stop_at build
+Created stop 1:8f85ffb3:uvm
+xcelium> probe -create $uvm:{uvm_test_top} -depth all -tasks -functions -uvm
+Created probe 3
+xcelium> run
+
+Spectre (R) Circuit Simulator
+Version 23.1.0.063 64bit -- 10 Jun 2023
+Copyright (C) 1989-2023 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: huyen_k66   Host: edabk   HostID: 6F64197F   PID: 4063
+Memory  available: 177.7719 GB  physical: 405.4474 GB
+Linux   : CentOS Linux release 7 (Core)
+CPU Type: AMD EPYC 7402 24-Core Processor
+        Socket: Processors [Frequency]
+        0:       0 [1500.0],  1 [1500.0],  2 [2800.0],  3 [1500.0],  4 [2800.0]
+                 5 [2800.0],  6 [2800.0],  7 [1500.0],  8 [2800.0],  9 [1500.0]
+                10 [1500.0], 11 [1500.0], 12 [1500.0], 13 [1500.0], 14 [1500.0]
+                15 [2800.0], 16 [1500.0], 17 [1500.0], 18 [2800.0], 19 [1500.0]
+                20 [1500.0], 21 [1500.0], 22 [1500.0], 23 [1500.0]
+        1:      24 [1500.0], 25 [1500.0], 26 [1500.0], 27 [1500.0], 28 [1500.0]
+                29 [1500.0], 30 [1500.0], 31 [1500.0], 32 [1500.0], 33 [1500.0]
+                34 [2800.0], 35 [1500.0], 36 [1500.0], 37 [2800.0], 38 [1500.0]
+                39 [1500.0], 40 [2800.0], 41 [2400.0], 42 [1500.0], 43 [2800.0]
+                44 [1500.0], 45 [2800.0], 46 [1500.0], 47 [1500.0]
+        
+System load averages (1min, 5min, 15min) : 25.3 %, 25.8 %, 24.8 %
+
+
+Simulating `amscf.ams' on edabk at 3:49:54 PM, Tue May 6, 2025 (process id: 4063).
+Current working directory: /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim
+Command line:
+    /Cadence/SPECTRE231/tools.lnx86/bin/spectre -64 amscf.ams +config  \
+        /Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/ams.cfg  \
+        -ahdllibdir xcelium.d/AMSD/ahdlSimDB -raw waves_ams.shm  \
+        +ams_control=xcelium.d/AMSD/ams_ctrl/ams_ctrl_3200_edabk
+Spectre Licensing Information:
+Spectre [15:49:54.345569] Configured Lic search path (22.01-s002): 5280@192.168.32.10
+
+Spectre Licensing Information:
+Spectre [15:49:54.395330] Periodic Lic check successful
+
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/amscf.ams
+
+Notice from spectre during circuit read-in.
+    Configuration file used: `/Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/ams.cfg'.
+
+Reading file:  /Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__clk_generator__vams__0x10000001_behavioral.va
+Reading file:  /Cadence/SPECTRE231/tools.lnx86/spectre/etc/ahdl/constants.vams
+
+Warning from spectre during AHDL read-in.
+    WARNING (VACOMP-1105): "(* vams_inter_node *)<<--?  electrical vcc;"
+        "/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/vams/osc_bridge_core.vams", line 67: Encountered unrecognized attribute, 'vams_inter_node'. If you expect Cadence Verilog-A to recognize this attribute, verify the spelling of the attribute for Cadence Verilog-A and try again.
+    WARNING (VACOMP-1105): "(* vams_inter_node *)<<--?  electrical osc_i;"
+        "/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/vams/osc_bridge_core.vams", line 75: Encountered unrecognized attribute, 'vams_inter_node'. If you expect Cadence Verilog-A to recognize this attribute, verify the spelling of the attribute for Cadence Verilog-A and try again.
+
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__osc_clk_observer__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__clk_detector__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__PFD__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__CP__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__VCO__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/worklib__frequency_divider__vams__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/connectLib__uL2E__module__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ahdlSimDB/connectLib__uE2L__module__0x10000001_behavioral.va
+Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/amscf.scs
+Reading file:  /Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/ams.cfg
+Time for NDB Parsing: CPU = 252.994 ms, elapsed = 980.961 ms.
+Time accumulated: CPU = 372.425 ms, elapsed = 980.966 ms.
+Peak resident memory used = 92.6 Mbytes.
+
+
+Warning from spectre during AHDL read-in.
+    WARNING (VACOMP-1105): "(* vams_inter_node *)<<--?  electrical vcc;"
+        "/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/vams/osc_bridge_core.vams", line 67: Encountered unrecognized attribute, 'vams_inter_node'. If you expect Cadence Verilog-A to recognize this attribute, verify the spelling of the attribute for Cadence Verilog-A and try again.
+    WARNING (VACOMP-1105): "(* vams_inter_node *)<<--?  electrical osc_i;"
+        "/home/huyen_k66/Documents/PLL_UVM_MS/uvc_lib/osc/vams/osc_bridge_core.vams", line 75: Encountered unrecognized attribute, 'vams_inter_node'. If you expect Cadence Verilog-A to recognize this attribute, verify the spelling of the attribute for Cadence Verilog-A and try again.
+
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//a3be82f5016d529b954e12040063eef1.worklib__clk_generator__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//a3be82f5016d529b954e12040063eef1.worklib__clk_generator__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__clk_generator__vams__0x10000001_behavioral.
+Finished compilation in 1.91 s (elapsed) for worklib__clk_generator__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__clk_generator__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//9d9cfedf3c40df69d1490ae623cde3a4.worklib__osc_clk_observer__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//9d9cfedf3c40df69d1490ae623cde3a4.worklib__osc_clk_observer__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__osc_clk_observer__vams__0x10000001_behavioral.
+Finished compilation in 2.05 s (elapsed) for worklib__osc_clk_observer__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__osc_clk_observer__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//e76da3ca22a8839a65d779a13cb661c0.worklib__clk_detector__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//e76da3ca22a8839a65d779a13cb661c0.worklib__clk_detector__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__clk_detector__vams__0x10000001_behavioral.
+Finished compilation in 1.79 s (elapsed) for worklib__clk_detector__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__clk_detector__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//843f99fa3523ebc0167e56290eea0184.worklib__PFD__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//843f99fa3523ebc0167e56290eea0184.worklib__PFD__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__PFD__vams__0x10000001_behavioral.
+Finished compilation in 2.3 s (elapsed) for worklib__PFD__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__PFD__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//18553fedb1a66c20dbe144034a29e1b0.worklib__CP__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//18553fedb1a66c20dbe144034a29e1b0.worklib__CP__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__CP__vams__0x10000001_behavioral.
+Finished compilation in 2.17 s (elapsed) for worklib__CP__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__CP__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//72547f2f78d481b93336e8d778a9f868.worklib__VCO__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//72547f2f78d481b93336e8d778a9f868.worklib__VCO__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__VCO__vams__0x10000001_behavioral.
+Finished compilation in 2.6 s (elapsed) for worklib__VCO__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__VCO__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//eebf40d8a53ca1449d9c19cb7afba9fb.worklib__frequency_divider__vams__0x10000001_behavioral.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//eebf40d8a53ca1449d9c19cb7afba9fb.worklib__frequency_divider__vams__0x10000001_behavioral.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for worklib__frequency_divider__vams__0x10000001_behavioral.
+Finished compilation in 1.97 s (elapsed) for worklib__frequency_divider__vams__0x10000001_behavioral.
+Installed compiled interface for worklib__frequency_divider__vams__0x10000001_behavioral.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//d4110bc46bdc1f8468c2f45627a7ed64.connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//d4110bc46bdc1f8468c2f45627a7ed64.connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.
+Finished compilation in 2.62 s (elapsed) for connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.
+Installed compiled interface for connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.
+Opening directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//2649c9d08bf44ee9a1ca6c6ee84783ea.connectLib__uE2L__module__0x10000001_behavioral_c1_1_c2_0_c0_0.ahdlcmi/ (775)
+Created directory xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//2649c9d08bf44ee9a1ca6c6ee84783ea.connectLib__uE2L__module__0x10000001_behavioral_c1_1_c2_0_c0_0.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for connectLib__uE2L__module__0x10000001_behavioral_c1_1_c2_0_c0_0.
+Finished compilation in 1.97 s (elapsed) for connectLib__uE2L__module__0x10000001_behavioral_c1_1_c2_0_c0_0.
+Installed compiled interface for connectLib__uE2L__module__0x10000001_behavioral_c1_1_c2_0_c0_0.
+Time for Elaboration: CPU = 385.675 ms, elapsed = 19.8391 s.
+Time accumulated: CPU = 758.246 ms, elapsed = 20.8202 s.
+Peak resident memory used = 110 Mbytes.
+
+
+Time for EDB Visiting: CPU = 5.025 ms, elapsed = 5.02515 ms.
+Time accumulated: CPU = 763.435 ms, elapsed = 20.8254 s.
+Peak resident memory used = 111 Mbytes.
+
+
+Warning from spectre during initial setup.
+    WARNING (SPECTRE-8286): Ignoring invalid item `top.generator_bridge.core.driver.osc_p1' in save statement.
+    WARNING (SPECTRE-8286): Ignoring invalid item `top.generator_bridge.core.driver.osc_n1' in save statement.
+    WARNING (SPECTRE-8286): Ignoring invalid item `top.detector_bridge.core.driver.osc_p1' in save statement.
+    WARNING (SPECTRE-8286): Ignoring invalid item `top.detector_bridge.core.driver.osc_n1' in save statement.
+Notice from spectre during initial setup.
+    Ignorevaref=yes is ignored since all nodes are connected to Verilog-A modules.
+Notice from spectre during topology check.
+    Only one connection to the following 8 nodes:
+        top.clkout_n
+        top.generator_bridge__osc_clk_n
+        top.generator_bridge.core.driver.osc_i
+        top.generator_bridge.core.driver.vcc
+        top.detector_bridge.core.driver.osc_i
+        Further occurrences of this notice will be suppressed.
+    No DC path from node `top.clkout_n' to ground, Gmin installed to provide path.
+    No DC path from node `top.clkout_p' to ground, Gmin installed to provide path.
+    No DC path from node `top.generator_bridge__osc_clk_p' to ground, Gmin installed to provide path.
+    No DC path from node `top.generator_bridge__osc_clk_n' to ground, Gmin installed to provide path.
+    No DC path from node `top.pll_dut.vc' to ground, Gmin installed to provide path.
+        Further occurrences of this notice will be suppressed.
+
+
+Global user options:
+               save = selected
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 90
+worklib__CP__vams__0x10000001_behavioral 1     
+worklib__clk_detector__vams__0x10000001_behavioral 2     
+worklib__clk_generator__vams__0x10000001_behavioral 2     
+worklib__frequency_divider__vams__0x10000001_behavioral 1     
+worklib__osc_clk_observer__vams__0x10000001_behavioral 2     
+worklib__PFD__vams__0x10000001_behavioral 1     
+worklib__VCO__vams__0x10000001_behavioral 1     
+connectLib__uE2L__module__0x10000001_behavioral 1     
+connectLib__uL2E__module__0x10000001_behavioral 1     
+
+Analysis and control statement inventory:
+               tran 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 89    
+
+
+Notice from spectre.
+    1 notice suppressed.
+
+Time for parsing: CPU = 8.658 ms, elapsed = 9.88007 ms.
+Time accumulated: CPU = 772.219 ms, elapsed = 20.8354 s.
+Peak resident memory used = 112 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+
+***********************************************
+Transient Analysis `tran': time = (0 s -> 1 ms)
+***********************************************
+----------------------------------------------------------------
+CDNS-UVM-1.1d (24.09-s007)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test pll_base_test...
+0 FS + 4 begin-of-build
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/cdns_tcl.svh:739 		->cdns_uvm_data_valid;
+xcelium> run
+UVM_INFO ../pll_tb.sv(20) @ 0: uvm_test_top.tb [MSG] In the build phase
+UVM_INFO ../../uvc_lib/osc/sv/osc_env.sv(31) @ 0: uvm_test_top.tb.freq_detector [VIF_SUCCESS] virtual interface osc_if configured
+UVM_INFO ../../uvc_lib/osc/sv/osc_env.sv(31) @ 0: uvm_test_top.tb.freq_generator [VIF_SUCCESS] virtual interface osc_if configured
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(74) @ 0: uvm_test_top.tb.freq_detector.agent.monitor [CONFIG_CORRECT] Value of uvm_test_top.tb.freq_detector.agent.monitor.diff_sel = 1
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(74) @ 0: uvm_test_top.tb.freq_generator.agent.monitor [CONFIG_CORRECT] Value of uvm_test_top.tb.freq_generator.agent.monitor.diff_sel = 0
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+-------------------------------------------------------------------------------
+Name                              Type                        Size  Value      
+-------------------------------------------------------------------------------
+uvm_test_top                      pll_base_test               -     @2575      
+  tb                              pll_tb                      -     @2662      
+    freq_detector                 osc_env                     -     @2692      
+      agent                       osc_agent                   -     @3010      
+        monitor                   osc_monitor                 -     @3054      
+          item_collected_port     uvm_analysis_port           -     @3104      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h1        
+          recording_detail        integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_PASSIVE
+        recording_detail          integral                    32    'd1        
+      agent                       osc_agent                   -     @3010      
+        monitor                   osc_monitor                 -     @3054      
+          item_collected_port     uvm_analysis_port           -     @3104      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h1        
+          recording_detail        integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_PASSIVE
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    freq_generator                osc_env                     -     @2739      
+      agent                       osc_agent                   -     @3133      
+        driver                    osc_driver                  -     @3883      
+          rsp_port                uvm_analysis_port           -     @3981      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @3932      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          period                  real                        64    0.000000   
+          recording_detail        integral                    32    'd1        
+        monitor                   osc_monitor                 -     @3168      
+          item_collected_port     uvm_analysis_port           -     @3217      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h0        
+          recording_detail        integral                    32    'd1        
+        sequencer                 osc_sequencer               -     @3247      
+          rsp_export              uvm_analysis_export         -     @3305      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @3853      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      agent                       osc_agent                   -     @3133      
+        driver                    osc_driver                  -     @3883      
+          rsp_port                uvm_analysis_port           -     @3981      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @3932      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          period                  real                        64    0.000000   
+          recording_detail        integral                    32    'd1        
+        monitor                   osc_monitor                 -     @3168      
+          item_collected_port     uvm_analysis_port           -     @3217      
+            recording_detail      integral                    32    'd1        
+          num_col_in              integral                    32    'h0        
+          num_col_out             integral                    32    'h0        
+          diff_sel                integral                    1     'h0        
+          recording_detail        integral                    32    'd1        
+        sequencer                 osc_sequencer               -     @3247      
+          rsp_export              uvm_analysis_export         -     @3305      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @3853      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    pll_sb                        pll_scoreboard              -     @2798      
+      sb_osc_det                  uvm_analysis_imp_osc_det    -     @2981      
+        recording_detail          integral                    32    'd1        
+      sb_osc_gen                  uvm_analysis_imp_osc_gen    -     @2930      
+        recording_detail          integral                    32    'd1        
+      sb_registers_in             uvm_analysis_imp_registers  -     @2879      
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    registers                     registers_env               -     @2768      
+      reg_agent                   registers_agent             -     @4040      
+        driver                    registers_driver            -     @4836      
+          rsp_port                uvm_analysis_port           -     @4934      
+            recording_detail      integral                    32    'd1        
+          seq_item_port           uvm_seq_item_pull_port      -     @4885      
+            recording_detail      integral                    32    'd1        
+          num_sent                integral                    32    'h0        
+          recording_detail        integral                    32    'd1        
+        monitor                   registers_monitor           -     @4073      
+          item_collected_port     uvm_analysis_port           -     @4122      
+            recording_detail      integral                    32    'd1        
+          item_ms_collected_port  uvm_analysis_port           -     @4171      
+            recording_detail      integral                    32    'd1        
+          num_pkt_col             integral                    32    'h0        
+          coverage_control        cover_e                     1     COV_ENABLE 
+          recording_detail        integral                    32    'd1        
+        sequencer                 registers_sequencer         -     @4201      
+          rsp_export              uvm_analysis_export         -     @4258      
+            recording_detail      integral                    32    'd1        
+          seq_item_export         uvm_seq_item_pull_imp       -     @4806      
+            recording_detail      integral                    32    'd1        
+          recording_detail        integral                    32    'd1        
+          arbitration_queue       array                       0     -          
+          lock_queue              array                       0     -          
+          num_last_reqs           integral                    32    'd1        
+          num_last_rsps           integral                    32    'd1        
+        is_active                 uvm_active_passive_enum     1     UVM_ACTIVE 
+        recording_detail          integral                    32    'd1        
+      recording_detail            integral                    32    'd1        
+    recording_detail              integral                    32    'd1        
+-------------------------------------------------------------------------------
+
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(62) @ 0: uvm_test_top.tb.freq_detector.agent.monitor [osc_monitor] start of simulation for uvm_test_top.tb.freq_detector.agent.monitor
+UVM_INFO ../../uvc_lib/osc/sv/osc_agent.sv(34) @ 0: uvm_test_top.tb.freq_detector.agent [osc_agent] start of simulation for uvm_test_top.tb.freq_detector.agent
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(62) @ 0: uvm_test_top.tb.freq_generator.agent.monitor [osc_monitor] start of simulation for uvm_test_top.tb.freq_generator.agent.monitor
+UVM_INFO ../../uvc_lib/osc/sv/osc_agent.sv(34) @ 0: uvm_test_top.tb.freq_generator.agent [osc_agent] start of simulation for uvm_test_top.tb.freq_generator.agent
+UVM_INFO ../../uvc_lib/registers/sv/registers_monitor.sv(31) @ 0: uvm_test_top.tb.registers.reg_agent.monitor [registers_monitor] start of simulation for uvm_test_top.tb.registers.reg_agent.monitor
+UVM_INFO ../../uvc_lib/registers/sv/registers_sequencer.sv(11) @ 0: uvm_test_top.tb.registers.reg_agent.sequencer [registers_sequencer] start of simulation for uvm_test_top.tb.registers.reg_agent.sequencer
+UVM_INFO ../../uvc_lib/registers/sv/registers_agent.sv(38) @ 0: uvm_test_top.tb.registers.reg_agent [registers_agent] start of simulation for uvm_test_top.tb.registers.reg_agent
+UVM_INFO ../../uvc_lib/registers/sv/registers_env.sv(21) @ 0: uvm_test_top.tb.registers [registers_env] start of simulation for uvm_test_top.tb.registers
+UVM_INFO ../test_lib.sv(27) @ 0: uvm_test_top [pll_base_test] start of simulation for uvm_test_top
+UVM_INFO ../../uvc_lib/registers/sv/registers_monitor.sv(46) @ 0: uvm_test_top.tb.registers.reg_agent.monitor [registers_monitor] Inside the run_phase
+UVM_INFO ../../uvc_lib/registers/sv/registers_driver.sv(31) @ 0: uvm_test_top.tb.registers.reg_agent.driver [registers_driver] Resetting register signals
+UVM_INFO ../../uvc_lib/registers/sv/registers_if.sv(38) @ 0: reporter [REGISTERS_IF] sending packet to DUT
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(79) @ 0: uvm_test_top.tb.freq_generator.agent.monitor [osc_monitor] Inside the run_phase
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(79) @ 0: uvm_test_top.tb.freq_detector.agent.monitor [osc_monitor] Inside the run_phase
+SDI/Verilog Transaction Recording Facility Version 24.09-s007
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(176) @ 0: uvm_test_top.tb.freq_detector.agent.monitor [osc_monitor] 
+Report: osc_monitor collected frequency 0 times in total.
+UVM_INFO ../../uvc_lib/osc/sv/osc_driver.sv(96) @ 0: uvm_test_top.tb.freq_generator.agent.driver [osc_driver] 
+Report: OSC driver sent 0 packets in total.
+UVM_INFO ../../uvc_lib/osc/sv/osc_monitor.sv(180) @ 0: uvm_test_top.tb.freq_generator.agent.monitor [osc_monitor] 
+Report: osc_monitor collected frequency 0 times in total.
+                                        total_match_check, num_match, num_mismatch, in_dropped), UVM_LOW)
+                                                                                                        |
+xmsim: *W,SYSFMW (../pll_scoreboard.sv,167|104): More arguments passed to $sformatf/$psprintf than specified in format string .
+UVM_INFO ../pll_scoreboard.sv(167) @ 0: uvm_test_top.tb.pll_sb [pll_scoreboard] SCað"~®!íÖÿbéâ
+–Œ          0          0          0          0
+UVM_INFO ../pll_scoreboard.sv(171) @ 0: uvm_test_top.tb.pll_sb [pll_scoreboard] Simulation PASSED
+** Overall Coverage = xmsim: *N,COVNSM: (File: ../pll_scoreboard.sv, Line: 173):(Time: 0 FS + 165) Sampling of covergroup type "pll_scoreboard::input_sig_cg" (../pll_scoreboard.sv:38), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+0.000000 % **
+UVM_INFO ../../uvc_lib/registers/sv/registers_driver.sv(75) @ 0: uvm_test_top.tb.registers.reg_agent.driver [registers_driver] Report: registers driver sent 0 packets
+UVM_INFO ../../uvc_lib/registers/sv/registers_monitor.sv(65) @ 0: uvm_test_top.tb.registers.reg_agent.monitor [registers_monitor] Report: registers Monitor Collected 0 Packets
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   28
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[CONFIG_CORRECT]     2
+[MSG]     1
+[REGISTERS_IF]     1
+[RNTST]     1
+[UVMTOP]     1
+[VIF_SUCCESS]     2
+[osc_agent]     2
+[osc_driver]     1
+[osc_monitor]     6
+[pll_base_test]     1
+[pll_scoreboard]     2
+[registers_agent]     1
+[registers_driver]     2
+[registers_env]     1
+[registers_monitor]     3
+[registers_sequencer]     1
+Simulation complete via $finish(1) at time 0 FS + 180
+/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.09-s007: Exiting on May 06, 2025 at 15:50:15 +07  (total: 00:00:36)

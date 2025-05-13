@@ -1,0 +1,155 @@
+ahdlcmicompile: Compiling ahdlcmi in xcelium.d/AMSD/ahdlSimDB/amscf.ahdlSimDB//f3be445a5c36b4d53a027d7afc4ee616.connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.ahdlcmi/Linux-64/ for Linux-64 with optimize using gcc on Mon May 12 12:58:36 EDT 2025 [5.0]
+ahdlcmicompile: Generating makefile
+PATH:  /Cadence/SPECTRE231/bin:/Cadence/SPECTRE231/tools.lnx86/bin/64bit:/Cadence/SPECTRE231/tools.lnx86/bin:/Cadence/XCELIUM2409/tools/bin/64bit:/Cadence/XCELIUM2409/tools/bin/64bit:/Cadence/XCELIUM2409/tools/bin/64bit:/Cadence/VMANAGER2503/bin:/Cadence/MODUS2312/bin:/Cadence/COMFRML241/bin:/Cadence/IC231/tools/bin:/Cadence/IC231/bin:/Cadence/XCELIUM2409/tools/bin:/Cadence/INNOVUS221/bin:/Cadence/GENUS211/bin:/Cadence/bin:/Cadence/liberate/2310/bin:/home/huyen_k66/.vscode-server/cli/servers/Stable-e54c774e0add60467559eb0d1e229c6452cf8447/server/bin/remote-cli:/Cadence/VMANAGER2503/bin:/Cadence/MODUS2312/bin:/Cadence/COMFRML241/bin:/Cadence/IC231/tools/bin:/Cadence/IC231/bin:/Cadence/XCELIUM2409/tools/bin:/Cadence/INNOVUS221/bin:/Cadence/GENUS211/bin:/Cadence/bin:/Cadence/liberate/2310/bin:/Cadence/VMANAGER2503/bin:/Cadence/MODUS2312/bin:/Cadence/COMFRML241/bin:/Cadence/IC231/tools/bin:/Cadence/IC231/bin:/Cadence/XCELIUM2409/tools/bin:/Cadence/INNOVUS221/bin:/Cadence/GENUS211/bin:/Cadence/bin:/Cadence/liberate/2310/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/huyen_k66/.local/bin:/home/huyen_k66/bin:/home/huyen_k66/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts:/bin
+LD_LIBRARY_PATH:  /Cadence/SPECTRE231/tools.lnx86/TPtools/libstdc++6/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/TPtools/cuda/lib64:/Cadence/SPECTRE231/tools.lnx86/giganta/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/mdl/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/mmsim/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/hdf/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/python/64bit/lib:/Cadence/SPECTRE231/tools.lnx86/inca/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/awrmwo/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/spectre/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/dfII/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/TPtools/zlib/lib64:/Cadence/SPECTRE231/tools.lnx86/TPtools/grpc/lib:/Cadence/SPECTRE231/tools.lnx86/TPtools/grpc/lib64:/Cadence/SPECTRE231/tools.lnx86/fmc/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/lib/64bit:/Cadence/SPECTRE231/tools.lnx86/lib:/Cadence/SPECTRE231/tools.lnx86/lib/64bit/RHEL/RHEL7:/Cadence/XCELIUM2409/tools/lib/64bit:/Cadence/XCELIUM2409/tools/lib/64bit/SuSE
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/gnumake -j1 -f GNUmakefile
+Cleaning ./obj/optimize/5.0
+rm -f -rf ./obj/optimize/5.0
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.o
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_AcLoad':
+<stdin>:303:134: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_der_10' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:212:247: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ParamInit':
+<stdin>:415:24: warning: passing argument 2 of 'aslDevAssignStringC' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2553:58: note: expected 'char *' but argument is of type 'long int *'
+ 2553 | ASL_FUNC_DECL_START extern int aslDevAssignStringC( int, char *, char *, struct ahdlFuncModeParam * );
+      |                                                          ^~~~~~
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad':
+<stdin>:297:134: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_der_10' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:212:247: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+<stdin>:386:113: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+<stdin>:411:49: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad':
+<stdin>:282:130: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_00' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:211:243: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+<stdin>:357:113: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad':
+<stdin>:297:134: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_der_10' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:212:247: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+<stdin>:386:113: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+<stdin>:411:49: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad':
+<stdin>:282:130: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_00' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:211:243: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+<stdin>:357:113: warning: passing argument 1 of 'aslDevInterAddStaticElement' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2300:62: note: expected 'void *' but argument is of type 'long int'
+ 2300 | ASL_FUNC_DECL_START extern long aslDevInterAddStaticElement( void *, double, struct ahdlFuncModeParam * );
+      |                                                              ^~~~~~
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc':
+<stdin>:277:134: warning: passing argument 2 of 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_userFn_iout_limit_der_10' from incompatible pointer type [-Wincompatible-pointer-types]
+<stdin>:212:247: note: expected 'struct connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0InstData *' but argument is of type 'char *'
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.c
+Compiling C file connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.c (optimize)
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc  -ffast-math  -fno-unsafe-math-optimizations -Wno-error=int-conversion -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include -I/Cadence/SPECTRE231/tools.lnx86/cmi/include -c connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.c -o obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.o || rm -f -f obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.o
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pPrintDescription':
+<stdin>:1946:3: warning: implicit declaration of function 'msgWrite' [-Wimplicit-function-declaration]
+<stdin>:1948:67: warning: implicit declaration of function 'devGetRFinFreqDomain' [-Wimplicit-function-declaration]
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pGetInstanceParams':
+<stdin>:2172:41: warning: implicit declaration of function 'devGetInstKnotStatus'; did you mean 'devGetInstState'? [-Wimplicit-function-declaration]
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pDC_Load':
+<stdin>:2459:41: warning: passing argument 1 of 'aslDevFillZeorDiagonalElemet' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2884:63: note: expected 'void *' but argument is of type 'long int'
+ 2884 | ASL_FUNC_DECL_START extern void aslDevFillZeorDiagonalElemet( void *, int, unsigned int, struct ahdlFuncModeParam * );
+      |                                                               ^~~~~~
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pCompare':
+<stdin>:3107:3: warning: implicit declaration of function 'spReplaceMatrixPointer'; did you mean 'aslDevLaplaceGetMatrixPointer'? [-Wimplicit-function-declaration]
+<stdin>:3115:37: warning: assignment to 'long int' from 'long int *' makes integer from pointer without a cast [-Wint-conversion]
+<stdin>:3116:23: warning: passing argument 1 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+In file included from /Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlPiCmi.h:5,
+                 from /Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:80,
+                 from <stdin>:24:
+/usr/include/string.h:42:14: note: expected 'void * restrict' but argument is of type 'long int'
+   42 | extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+      |              ^~~~~~
+<stdin>:3116:58: warning: passing argument 2 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+In file included from /Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlPiCmi.h:5,
+                 from /Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:80,
+                 from <stdin>:24:
+/usr/include/string.h:42:14: note: expected 'const void * restrict' but argument is of type 'long int'
+   42 | extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+      |              ^~~~~~
+<stdin>:3118:37: warning: assignment to 'long int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pMapSignals':
+<stdin>:3178:26: warning: comparison between pointer and integer
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pGetMatrixPointers':
+<stdin>:3276:4: warning: implicit declaration of function 'spGetMatrixPointer'; did you mean 'descSetGetMatrixPointers'? [-Wimplicit-function-declaration]
+<stdin>:3299:34: warning: assignment to 'long int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+<stdin>:3301:37: warning: assignment to 'long int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pAnalTranLoad':
+<stdin>:4203:42: warning: passing argument 1 of 'aslDevFillZeorDiagonalElemet' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2884:63: note: expected 'void *' but argument is of type 'long int'
+ 2884 | ASL_FUNC_DECL_START extern void aslDevFillZeorDiagonalElemet( void *, int, unsigned int, struct ahdlFuncModeParam * );
+      |                                                               ^~~~~~
+<stdin>:4205:39: warning: passing argument 1 of 'aslDevFillZeroDiagQuartet' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2886:60: note: expected 'void *' but argument is of type 'long int'
+ 2886 | ASL_FUNC_DECL_START extern void aslDevFillZeroDiagQuartet( void *, int, unsigned int, struct ahdlFuncModeParam * );
+      |                                                            ^~~~~~
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pSaveRestart':
+<stdin>:4487:4: warning: implicit declaration of function 'pklAccessDouble' [-Wimplicit-function-declaration]
+<stdin>:4488:29: warning: passing argument 2 of 'aslDevAvarSR' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:1230:58: note: expected 'struct ahdlAnalogVar *' but argument is of type 'char *'
+ 1230 | ASL_FUNC_DECL_START extern PklError_e aslDevAvarSR( int, struct ahdlAnalogVar *, char *, char *, char *, PklJar_t * );
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~
+<stdin>: In function 'connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_pSaveRestartInst':
+<stdin>:4562:27: warning: passing argument 2 of 'aslDevAvarSR' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:
+/Cadence/SPECTRE231/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:1230:58: note: expected 'struct ahdlAnalogVar *' but argument is of type 'char *'
+ 1230 | ASL_FUNC_DECL_START extern PklError_e aslDevAvarSR( int, struct ahdlAnalogVar *, char *, char *, char *, PklJar_t * );
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~
+<stdin>: In function 'ahdlconnectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0DescInstall':
+<stdin>:4725:2: warning: implicit declaration of function 'descSetNominalName'; did you mean 'descSetTerminalNames'? [-Wimplicit-function-declaration]
+<stdin>:4758:2: warning: implicit declaration of function 'descSetDeviceType'; did you mean 'descSetType'? [-Wimplicit-function-declaration]
+<stdin>:4760:2: warning: implicit declaration of function 'descSetSetContrInfoPtr' [-Wimplicit-function-declaration]
+<stdin>:4768:2: warning: implicit declaration of function 'descSetCopySignals'; did you mean 'descSetMapSignals'? [-Wimplicit-function-declaration]
+<stdin>:4797:2: warning: implicit declaration of function 'descSetPrintDescription' [-Wimplicit-function-declaration]
+<stdin>:4799:2: warning: implicit declaration of function 'descSetGetDigitalOffset' [-Wimplicit-function-declaration]
+<stdin>:4800:2: warning: implicit declaration of function 'descSetVATermInfo'; did you mean 'descSetGetInfo'? [-Wimplicit-function-declaration]
+<stdin>:4801:2: warning: implicit declaration of function 'descSetGetNodeNamesForBranch' [-Wimplicit-function-declaration]
+rm -f -rf connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.c
+/Cadence/SPECTRE231/tools.lnx86/cdsgcc/gcc/9.3/bin/gcc -shared -O3 -m64 -fPIC -o obj/optimize/5.0/libahdlcmi_connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0.so ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.o  -Wl,-rpath,/usr/lib -Wl,-rpath,/lib -lm -s 
+rm -f -f ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_ufunc.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_func.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncDerLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_DcFuncLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncDerLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_TranFuncLoad.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_OpPointCalc.o ./obj/optimize/5.0/connectLib__uL2E__module__0x10000001_behavioral_c3_0_c1_0_c4_0_c5_0_c2_0_c0_0_cmi_c.o 

@@ -159,7 +159,7 @@ class pll_scoreboard extends uvm_scoreboard;
   // Report phase
   function void report_phase(uvm_phase phase);
     super.report_phase(phase);
-    `uvm_info(get_type_name(), $sformatf("Scoreboard Report:\n" +
+    `uvm_info(get_type_name(), $sformatf("SCOREBOARD REPORT:\n" +
                                         "\tPackets In: %0d\n" +
                                         "\tMatches: %0d\n" +
                                         "\tMismatches: %0d\n" +
@@ -331,7 +331,7 @@ class pll_ms_scoreboard extends pll_scoreboard;
   // Report phase
   function void report_phase(uvm_phase phase);
     super.report_phase(phase);
-    `uvm_info(get_type_name(), $sformatf("Mixed-Signal Scoreboard Report:\n" +
+    `uvm_info(get_type_name(), $sformatf("Mixed-Signal SCOREBOARD REPORT:\n" +
                                         "\tPackets In: %0d\n" +
                                         "\tMatches: %0d\n" +
                                         "\tMismatches: %0d\n" +

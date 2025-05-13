@@ -1,0 +1,411 @@
+`include "constants.vams"
+
+nature Power
+  access = Pwr;
+  units = "W";
+  abstol = 1e-09;
+endnature
+
+
+nature Position
+  access = Pos;
+  units = "m";
+  abstol = 1e-06;
+  ddt_nature = Velocity;
+endnature
+
+
+nature Angular_Acceleration
+  access = Alpha;
+  units = "rads/s^2";
+  abstol = 1e-06;
+  idt_nature = Angular_Velocity;
+endnature
+
+
+nature Temperature
+  access = Temp;
+  units = "C";
+  abstol = 0.0001;
+endnature
+
+
+nature Velocity
+  access = Vel;
+  units = "m/s";
+  abstol = 1e-06;
+  idt_nature = Position;
+  ddt_nature = Acceleration;
+endnature
+
+
+nature Acceleration
+  access = Acc;
+  units = "m/s^2";
+  abstol = 1e-06;
+  idt_nature = Velocity;
+  ddt_nature = Impulse;
+endnature
+
+
+nature Flux
+  access = Phi;
+  units = "Wb";
+  abstol = 1e-09;
+  ddt_nature = Voltage;
+endnature
+
+
+nature Charge
+  access = Q;
+  units = "coul";
+  abstol = 1e-14;
+  ddt_nature = Current;
+endnature
+
+
+nature Impulse
+  access = Imp;
+  units = "m/s^3";
+  abstol = 1e-06;
+  idt_nature = Acceleration;
+endnature
+
+
+nature Voltage
+  access = V;
+  units = "V";
+  abstol = 1e-06;
+  idt_nature = Flux;
+endnature
+
+
+nature Angular_Force
+  access = Tau;
+  units = "N*m";
+  abstol = 1e-06;
+endnature
+
+
+nature Magneto_Motive_Force
+  access = MMF;
+  units = "A*turn";
+  abstol = 1e-12;
+endnature
+
+
+nature Force
+  access = F;
+  units = "N";
+  abstol = 1e-06;
+endnature
+
+
+nature Angular_Velocity
+  access = Omega;
+  units = "rads/s";
+  abstol = 1e-06;
+  idt_nature = Angle;
+  ddt_nature = Angular_Acceleration;
+endnature
+
+
+nature Current
+  access = I;
+  units = "A";
+  abstol = 1e-12;
+  idt_nature = Charge;
+endnature
+
+
+nature Angle
+  access = Theta;
+  units = "rads";
+  abstol = 1e-06;
+  ddt_nature = Angular_Velocity;
+endnature
+
+
+discipline kinematic_v
+  domain continuous;
+  potential Velocity;
+  flow Force;
+enddiscipline
+
+
+discipline rotational_omega
+  domain continuous;
+  potential Angular_Velocity;
+  flow Angular_Force;
+enddiscipline
+
+
+discipline electrical
+  domain continuous;
+  potential Voltage;
+  flow Current;
+enddiscipline
+
+
+discipline rotational
+  domain continuous;
+  potential Angle;
+  flow Angular_Force;
+enddiscipline
+
+
+discipline kinematic
+  domain continuous;
+  potential Position;
+  flow Force;
+enddiscipline
+
+
+discipline voltage
+  domain continuous;
+  potential Voltage;
+enddiscipline
+
+
+discipline magnetic
+  domain continuous;
+  potential Magneto_Motive_Force;
+  flow Flux;
+enddiscipline
+
+
+discipline thermal
+  domain continuous;
+  potential Temperature;
+  flow Power;
+enddiscipline
+
+
+discipline current
+  domain continuous;
+  potential Current;
+enddiscipline
+
+(* vams_to_va="/Cadence/XCELIUM2409/tools.lnx86/affirma_ams/etc/connect_lib/uL2E.vams" *)
+(* ams_ie *)
+
+module connectLib__uL2E__module__0x10000001_behavioral(Aout);
+ //L=157
+parameter string accuracy = "moderate";
+//L=158
+parameter real vsup = 1.0;
+//L=159
+parameter real vlo = 0;
+//L=160
+parameter real vhi = (vlo+vsup);
+//L=161
+parameter real vthi = (vsup/1.5);
+//L=162
+parameter real vtlo = (vthi/2);
+//L=163
+parameter real vtol = (vsup/12);
+//L=164
+parameter real vx = vlo;
+//L=165
+parameter real vz = vlo;
+//L=166
+parameter real rhi = 200;
+//L=167
+parameter real rlo = rhi;
+//L=168
+parameter real rz = 10000000.0;
+//L=169
+parameter real rx = ((rlo+rhi)/2);
+//L=170
+parameter real tr = 2e-10;
+//L=171
+parameter real tf = tr;
+//L=172
+parameter real ttol_t = ((tr+tf)/20);
+//L=173
+parameter real tdeltran_rise = 0;
+//L=174
+parameter real tdeltran_fall = tdeltran_rise;
+//L=175
+parameter real txdel = (4*tr);
+//L=176
+parameter real ttol_c = (tr/4);
+//L=177
+parameter real vtlox = (vtlo+vtol);
+//L=178
+parameter real vthix = (vthi-vtol);
+//L=179
+parameter integer nox = 0;
+//L=180
+parameter integer ignore_xz = 0;
+//L=181
+parameter integer analog_load = 0;
+//L=182
+parameter integer ramp_type = 0;
+//L=183
+parameter integer debug = 0;
+//L=184
+parameter integer vsup_low_output_x = 0;
+//L=185
+parameter real vinlimit = ((vsup*4)/3);
+//L=186
+parameter real vsup_min = 0.5;
+//L=187
+parameter real vddlimit = 2.4;
+//L=188
+parameter real vsup_off = (((vsup_min-vtol) <= 1e-09)?1e-09:(vsup_min-vtol));
+//L=190
+parameter integer enable_highz = 0;
+//L=191
+parameter real duration = 5e-09;
+//L=192
+parameter real vpso = 0.2;
+//L=193
+parameter real vtrhi = (vthi/vsup);
+//L=194
+parameter real vtrlo = (vtlo/vsup);
+//L=195
+parameter real vrtol = (vtol/vsup);
+//L=196
+parameter integer enable_ilimit = 0;
+//L=197
+parameter real ilimit = 0.0005;
+//L=198
+parameter integer bidir_trangate = 0;
+//L=203
+parameter real r_SUPPLY = (((((rhi > rlo)?rlo:rhi)/2.5) < 4)?(((rhi > rlo)?rlo:rhi)/2.5):4);
+//L=204
+parameter real r_PULL = 1500.0;
+//L=205
+parameter real r_LARGE = 9000.0;
+//L=206
+parameter real r_WEAK = 55000.0;
+//L=207
+parameter real r_MEDIUM = 320000.0;
+//L=208
+parameter real r_SMALL = 1900000.0;
+//L=210
+localparam integer ramp_type_local = ((((r_SUPPLY == 0) || (rhi == 0)) || (rlo == 0))?0:ramp_type);
+//L=211
+localparam real ilimit_check = (ilimit*0.999);
+//L=101
+electrical Aout;
+//L=547
+//L=218
+real vout;
+//L=218
+real rout;
+//L=225
+real highzState;
+//L=244
+real Kin;
+//L=270
+real ilimit_pulses;
+//L=271
+real ilimit_reached;
+//L=272
+real ilimit_flow;
+//L=353
+analog function real iout_limit;
+//L=354
+//L=0
+input x;
+parameter real x;
+//L=355
+//L=0
+input m;
+parameter real m;
+ begin
+//L=357
+if ((x > m)) //L=357
+(iout_limit = (m*1.0));
+ else //L=358
+if ((x < (-m))) //L=358
+(iout_limit = (m*-1.0));
+ else //L=359
+(iout_limit = (m*(((((x+m)/m)*((x+m)/m))*(1.5-((x+m)/(2.0*m))))-1.0)));
+end
+endfunction
+//L=217
+(* digital="13" *) parameter real Vstate;
+//L=217
+(* digital="13" *) parameter real Rout;
+//L=222
+(* digital="13" *) parameter real TdV;
+//L=222
+(* digital="13" *) parameter real TrV;
+//L=222
+(* digital="13" *) parameter real TrR;
+//L=224
+(* digital="13" *) parameter real tdelay;
+analog
+   begin
+//L=610
+    if ((ramp_type_local == 1))      begin
+//L=611
+      (vout = (transition(Vstate, TdV, TrV, TrV, ttol_t)));
+//L=612
+      (rout = (exp((transition(Rout, tdelay, TrR, TrR, ttol_t)))));
+    end
+ else      begin
+//L=614
+      (vout = (transition(Vstate, tdelay, tr, tf, ttol_t)));
+//L=615
+      if (((!analog_load) & ignore_xz)) //L=615
+      (rout = rlo);
+ else //L=616
+      (rout = (transition(Rout, tdelay, tr, tf, ttol_t)));
+    end
+//L=653
+    (Kin = V(Aout) );
+//L=654
+    if (((rhi == 0) || (rlo == 0))) //L=654
+    V(Aout)  <+ (vout+(I(Aout) *rout));
+ else //L=655
+    if (enable_ilimit)      begin
+//L=656
+      (ilimit_flow = (iout_limit(((Kin-vout)/rout), ilimit)));
+//L=656
+      I(Aout)  <+ ilimit_flow;
+//L=657
+      if (((ilimit_flow >= ilimit_check) || (ilimit_flow <= (-ilimit_check))))        begin
+//L=658
+        if ((ilimit_reached == 0))          begin
+//L=659
+          (ilimit_reached = 1);
+//L=659
+          (ilimit_pulses = (ilimit_pulses+1));
+        end
+      end
+ else //L=660
+      (ilimit_reached = 0);
+    end
+ else //L=661
+    I(Aout)  <+ ((Kin-vout)/rout);
+//L=666
+    if ((analog_load & enable_highz)) //L=667
+    (highzState = (transition(($dyn_highz(Aout, enable_highz)), 0, tr, tf)));
+  end
+analog
+//L=538
+  (above((0.5-highzState), ttol_c, vtol, (analog_load & enable_highz)));
+analog
+//L=589
+  (above((Kin-vinlimit), ttol_c, vtol, (analog_load & debug)));
+analog
+//L=579
+  (above((Kin-vtlox), ttol_c, vtol, (analog_load & (!nox))));
+analog
+//L=573
+  (above((vthix-Kin), ttol_c, vtol, (analog_load & (!nox))));
+analog
+//L=565
+  (above((vtlo-Kin), ttol_c, vtol, analog_load));
+analog
+//L=557
+  (above((Kin-vthi), ttol_c, vtol, analog_load));
+analog
+//L=539
+  (above((highzState-0.5), ttol_c, vtol, (analog_load & enable_highz)));
+
+endmodule

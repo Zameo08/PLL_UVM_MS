@@ -17,8 +17,8 @@ UVM_AMS
 -INCDIR
 ../
 -I_INCDIR
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/sv/src
 -DEFINE
 USE_PARAMETERIZED_WRAPPER
 -I_INCDIR
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv

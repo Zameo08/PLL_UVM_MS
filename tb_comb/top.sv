@@ -83,10 +83,11 @@ assign freq_out = detector_if.freq;
   );
   
   initial begin
+    run_test();
     rst_n = 0;
     #5 rst_n = 1;
     $timeformat(-15, 5, " fs", 10); //Setting time precision for UVM report macros
-    run_test();
+
   end
 
 endmodule : top

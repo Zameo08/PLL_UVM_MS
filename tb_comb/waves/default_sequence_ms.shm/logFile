@@ -1,0 +1,55 @@
+HEADER
+"PSFversion" "1.00"
+"Log Generator" "drlLog rev. 1.0"
+"Log Time Stamp" "Tue May  6 16:38:33 2025"
+"psfversion" "1.4.0"
+"simulator" "spectre"
+"version" "23.1.0.063"
+"date" "4:38:33 PM, Tue May 6, 2025"
+"design" "//"
+"signalNameType" "spectre"
+"simMode" "Spectre"
+"measdgt" 0
+"ingold" 2
+"sst2usecolon" 0
+TYPE
+"analysisInst" STRUCT(
+"analysisType" STRING *
+"dataFile" STRING *
+"format" STRING *
+"parent" STRING *
+"sweepVariable" ARRAY ( * ) STRING *
+"description" STRING *
+)
+VALUE
+"tran-tran" "analysisInst" (
+"tran"
+"waves_ams.trn"
+"SST2"
+""
+("time")
+"Transient Analysis `tran': time = (0 s -> 1 ms)"
+) PROP(
+"data_type" "swept_scalar"
+"UUID" "edabk|x86_64|40317|1746524293|0"
+"dataset_logical_name" "tran-tran"
+"dataset_partition_priority" 1
+"dataset_partition_type" "digital"
+)
+
+"tran-tran" "analysisInst" (
+"tran"
+"tran.tran.tran"
+"PSF"
+""
+("time")
+"Transient Analysis `tran': time = (0 s -> 1 ms)"
+) PROP(
+"data_type" "swept_scalar"
+"UUID" "edabk|x86_64|40317|1746524293|0"
+"dataset_logical_name" "tran-tran"
+"dataset_partition_priority" 0
+"dataset_partition_type" "analog"
+)
+
+END

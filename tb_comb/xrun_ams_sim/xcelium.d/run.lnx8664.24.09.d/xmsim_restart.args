@@ -3,16 +3,16 @@
 // Do not modify this file
 //
 -INPUT
-"@source /Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
+"@source /Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
 +UVM_VERBOSITY=UVM_HIGH
 +SVSEED=random
 -SPECTRE_ARGS
 "-ahdllibdir xcelium.d/AMSD/ahdlSimDB"
 -uvmhome
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
-+UVM_TESTNAME=default_sequence_ms_test
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
++UVM_TESTNAME=input_threshold_test
 -SVSEED
 random
 -INPUT
@@ -22,13 +22,14 @@ random
 -AMSINPUT
 -ANALOGCONTROL
 ../amscf.scs
++UVM_TESTNAME=input_threshold_test
 -MESSAGES
 -SV_LIB
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
 +EMGRLOG
-xrun.log
+logs/input_threshold_test.log
 -XLSTIME
-1746170320
+1747069092
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.24.09.d
@@ -40,6 +41,6 @@ xrun.log
 -XLNAME
 xrun
 -XLVERSION
-"TOOL:	xrun(64)	24.09-s007"
+"TOOL:	xrun(64)	24.09-s008"
 -XLNAME
-./xcelium.d/run.lnx8664.24.09.d/edabk_3118
+./xcelium.d/run.lnx8664.24.09.d/edabk_6938

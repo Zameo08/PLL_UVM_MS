@@ -1,8 +1,3 @@
-//------------------------------------------------------------------------------
-//
-// CLASS: osc_sequencer
-//
-//------------------------------------------------------------------------------
 
 class osc_sequencer extends uvm_sequencer #(osc_transaction);
 	`uvm_component_utils(osc_sequencer)

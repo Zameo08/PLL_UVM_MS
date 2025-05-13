@@ -7,18 +7,19 @@
 -SPECTRE_ARGS
 "-ahdllibdir xcelium.d/AMSD/ahdlSimDB"
 -loadpli
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
 -timescale
 1ns/1fs
 -ACCESS
 +rwc
-+UVM_TESTNAME=default_sequence_ms_test
++UVM_TESTNAME=input_threshold_test
 -AMSINPUT
 ../amscf.scs
 -ANALOGCONTROL
 ../amscf.scs
 -RNM_COERCE
 detailed
++UVM_TESTNAME=input_threshold_test
 -MESSAGES
 top
 -AMSELAB

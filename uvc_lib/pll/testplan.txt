@@ -48,3 +48,91 @@ pll_pkg.sv: Package gom tất cả thành phần.
 pll_test.sv: Test khởi tạo môi trường và chạy sequence.
 
 pll_tb_top.sv: Top module kết nối DUT và testbench.
+
+1. 🟢 input_threshold – Ngưỡng tín hiệu đầu vào
+Ý nghĩa: Đây là biên độ và offset của tín hiệu đầu vào FREF (tần số tham chiếu).
+
+Tại sao cần kiểm thử:
+
+PLL chỉ hoạt động đúng khi nhận được tín hiệu đầu vào đủ mạnh và rõ ràng.
+
+Nếu tín hiệu FREF quá yếu hoặc lệch mức DC quá nhiều, mạch PFD không phát hiện đúng cạnh xung, làm PLL không khóa được.
+
+Kiểm tra điều này giúp đảm bảo PLL có thể hoạt động với các mức tín hiệu thực tế từ các nguồn khác nhau.
+
+2. 🟢 lock_time – Thời gian khóa
+Ý nghĩa: Khoảng thời gian từ khi cấp nguồn hoặc thay đổi FREF đến khi PLL đầu ra ổn định ở tần số mong muốn.
+
+Tại sao cần kiểm thử:
+
+Một PLL tốt phải khóa nhanh để không gây trễ toàn hệ thống.
+
+Trong hệ thống thực (như CPU, truyền thông), delay vài ms có thể làm chậm toàn bộ chuỗi xử lý.
+
+Việc kiểm tra thời gian khóa giúp đánh giá tốc độ phản ứng của vòng điều khiển.
+
+3. 🟢 output_threshold – Đặc tính tín hiệu đầu ra
+Ý nghĩa: Bao gồm biên độ, offset và tần số trung bình đầu ra của PLL.
+
+Tại sao cần kiểm thử:
+
+Biên độ phải đủ lớn để lái mạch số hoặc analog tiếp theo (ví dụ: ADC, DSP).
+
+Offset phải nằm trong vùng hoạt động tuyến tính, tránh mất thông tin.
+
+Tần số trung bình phải đạt đúng mục tiêu thiết kế (ví dụ: 1.9 GHz).
+
+Đây là tiêu chí cốt lõi để đánh giá PLL có hoạt động đúng hay không.
+
+4. 🟢 phase_noise – Nhiễu pha
+Ý nghĩa: Mức độ "dao động" ngẫu nhiên của pha tín hiệu đầu ra quanh tần số trung tâm.
+
+Tại sao cần kiểm thử:
+
+Nhiễu pha ảnh hưởng đến độ sạch của tín hiệu tần số cao → quan trọng trong truyền thông RF, đồng bộ clock, ADC độ phân giải cao.
+
+Nếu phase noise lớn, sẽ xuất hiện tín hiệu giả (spur), gây nhiễu sang các kênh khác.
+
+Kiểm thử giúp xác nhận PLL đủ sạch để dùng trong môi trường yêu cầu cao.
+
+5. 🟢 jitter – Nhiễu biên thời gian
+Ý nghĩa: Biến thiên thời điểm các cạnh xung đồng hồ.
+
+Tại sao cần kiểm thử:
+
+Jitter làm tín hiệu xung không ổn định, gây sai lệch dữ liệu ở các hệ thống đồng bộ (ví dụ: DDR, Ethernet).
+
+Nếu jitter quá lớn, timing margin giảm → dễ sai dữ liệu.
+
+Đây là một chỉ số trực tiếp đánh giá chất lượng của clock tạo bởi PLL.
+
+6. 🟢 freq_stability – Độ ổn định tần số
+Ý nghĩa: Tần số đầu ra có thay đổi nhiều không khi FREF dao động nhẹ hoặc nhiệt độ, nguồn thay đổi.
+
+Tại sao cần kiểm thử:
+
+Đảm bảo PLL duy trì tần số ổn định trong điều kiện thay đổi môi trường hoặc nguồn.
+
+Độ ổn định tần số cực kỳ quan trọng trong đồng hồ hệ thống (system clocks), RF carrier, ADC sampling, v.v.
+
+7. 🟢 loop_bandwidth – Băng thông vòng điều khiển
+Ý nghĩa: Phạm vi tần số mà vòng PLL có thể phản hồi và điều chỉnh sai lệch pha.
+
+Tại sao cần kiểm thử:
+
+Nếu băng thông quá hẹp → phản hồi chậm, lock time dài.
+
+Nếu quá rộng → dễ bị nhiễu, mất ổn định.
+
+Kiểm tra này giúp xác minh thiết kế đạt được sự cân bằng giữa tốc độ phản hồi và khả năng lọc nhiễu.
+
+8. 🟢 spurious_signals – Tín hiệu phụ không mong muốn (Spur)
+Ý nghĩa: Các thành phần tần số không mong muốn xuất hiện trong phổ tín hiệu đầu ra.
+
+Tại sao cần kiểm thử:
+
+Spur gây nhiễu cho các mạch khác trong hệ thống hoặc cho các kênh tần số lân cận (đặc biệt quan trọng trong RF).
+
+Kiểm tra giúp xác minh chất lượng phổ tín hiệu đầu ra và xem có vấn đề từ mạch điều khiển bên trong không (như CP mismatch, điều khiển số sai...).
+
+

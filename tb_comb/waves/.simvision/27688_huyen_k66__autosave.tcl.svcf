@@ -1,0 +1,188 @@
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-txe_waveform_navigate-WaveWindow {
+  usual
+  shown 1
+}
+preferences set toolbar-Uvm-WaveWindow {
+  usual
+  shown 1
+}
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-groupscope 0
+preferences set toolbar-txe_waveform_view-WaveWindow {
+  usual
+  shown 1
+}
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Databases
+#
+database require input_threshold -search {
+	./input_threshold.shm/waves_ams.trn
+	/home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/waves/input_threshold.shm/waves_ams.trn
+	./input_threshold.shm/tran-tran.tran
+	/home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/waves/input_threshold.shm/tran-tran.tran
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x977+-1+27}] != ""} {
+    window geometry "Waveform 1" 1920x977+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.dn
+	} ]
+waveform format $id -trace analogLinear -color #ff0000
+waveform axis range $id -for V -min 0 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.dnb
+	} ]
+waveform format $id -trace analogLinear -color #ff00a6
+waveform axis range $id -for V -min 0 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.fdiv
+	} ]
+waveform format $id -trace analogLinear -color #9500ff
+waveform axis range $id -for V -min 0 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.fout
+	} ]
+waveform format $id -trace analogLinear -color #002eff
+waveform axis range $id -for V -min 0 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.fref
+	} ]
+waveform format $id -trace analogLinear -color #00f1ff
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.gnd
+	} ]
+waveform format $id -trace analogLinear -color #00ff4a
+waveform axis range $id -for default -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.up
+	} ]
+waveform format $id -trace analogLinear -color #78ff00
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.upb
+	} ]
+waveform format $id -trace analogLinear -color #ffc300
+waveform axis range $id -for V -min 0.90000000000000002 -max 1.1000000000000001 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.vc
+	} ]
+waveform format $id -trace analogLinear -color #ff0000
+waveform axis range $id -for V -min -100000000.00000001 -max 0 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.pll_dut.fref
+	} ]
+waveform format $id -trace analogLinear -color #ffc300
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.enable_pll
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.clk_in
+	} ]
+waveform format $id -trace analogLinear -color #00f1ff
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.clkout_n
+	} ]
+waveform format $id -trace analogLinear -color #00ff4a
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	input_threshold::top.clkout_p
+	} ]
+waveform format $id -trace analogLinear -color #78ff00
+waveform axis range $id -for V -min -1 -max 1 -scale linear
+set id [waveform add -signals  {
+	{input_threshold::top.div_cfg[7:0]}
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.enable_pll
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.freq_in
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.freq_out
+	} ]
+set id [waveform add -signals  {
+	{input_threshold::top.lpf_c2[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{input_threshold::top.lpf_cp[1:0]}
+	} ]
+set id [waveform add -signals  {
+	{input_threshold::top.lpf_rp[1:0]}
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.reg_clk
+	} ]
+set id [waveform add -signals  {
+	input_threshold::top.rst_n
+	} ]
+set id [waveform add -signals  {
+	{input_threshold::top.vco_gain[3:0]}
+	} ]
+
+waveform xview limits 0 250ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#

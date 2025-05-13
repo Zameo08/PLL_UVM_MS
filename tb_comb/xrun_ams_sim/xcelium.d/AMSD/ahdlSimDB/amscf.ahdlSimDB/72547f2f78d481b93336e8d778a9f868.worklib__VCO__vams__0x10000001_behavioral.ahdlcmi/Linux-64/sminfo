@@ -1,0 +1,9 @@
+1639134
+290866
+worklib__VCO__vams__0x10000001_behavioral_DcFuncDerLoad.c 0 11454
+worklib__VCO__vams__0x10000001_behavioral_DcFuncLoad.c 11454 11448
+worklib__VCO__vams__0x10000001_behavioral_OpPointCalc.c 22902 10657
+worklib__VCO__vams__0x10000001_behavioral_TranFuncDerLoad.c 33559 15283
+worklib__VCO__vams__0x10000001_behavioral_TranFuncLoad.c 48842 15277
+worklib__VCO__vams__0x10000001_behavioral_cmi_c.c 64119 168083
+worklib__VCO__vams__0x10000001_behavioral_func.c 232202 50472

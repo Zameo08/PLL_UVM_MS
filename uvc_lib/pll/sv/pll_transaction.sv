@@ -32,16 +32,16 @@ class pll_ms_transaction extends pll_transaction;
     real phase_error;
 
     `uvm_object_utils_begin(pll_ms_transaction)
-        `uvm_field_enum(pll_ms_data_type_e, UVM_DEFAULT)
+        `uvm_field_enum(pll_ms_data_type_e, data_type, UVM_DEFAULT)
         `uvm_field_real(ampl, UVM_DEFAULT)
         `uvm_field_real(bias, UVM_DEFAULT)
         `uvm_field_int(enable, UVM_DEFAULT)
-        `uvm_filed_real(delay, UVM_DEFAULT)
-        `uvm_filed_int(duration, UVM_DEFAULT)
-        `uvm_filed_real(measured_freq, UVM_DEFAULT)
-        `uvm_filed_real(lock_time, UVM_DEFAULT)
-        `uvm_filed_real(jitter_rms, UVM_DEFAULT)
-        `uvm_filed_real(phase_error, UVM_DEFAULT)
+        `uvm_field_real(delay, UVM_DEFAULT)
+        `uvm_field_int(duration, UVM_DEFAULT)
+        `uvm_field_real(measured_freq, UVM_DEFAULT)
+        `uvm_field_real(lock_time, UVM_DEFAULT)
+        `uvm_field_real(jitter_rms, UVM_DEFAULT)
+        `uvm_field_real(phase_error, UVM_DEFAULT)
     `uvm_object_utils_end
 
     constraint default_drive_trans {

@@ -20,7 +20,7 @@ UVM_PLI
 ../../uvc_lib/osc/sv/osc_pkg.sv
 ../../uvc_lib/registers/sv/registers_pkg.sv
 ../../uvc_lib/osc/sv/osc_bridge.sv
-../../uvc_lib/osc/vams/osc_bridge_core.vams
+../../uvc_lib/osc/sv/osc_bridge_core.sv
 ../../uvc_lib/osc/sv/osc_if.sv
 ../../uvc_lib/registers/sv/registers_if.sv
 -INCDIR
@@ -43,11 +43,11 @@ UVM_AMS
 -HDLVAR
 ./xcelium.d/run.lnx8664.24.09.d/hdlrun.var
 -I_INCDIR
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/sv/src
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/sv/src
 -DEFINE
 USE_PARAMETERIZED_WRAPPER
 -I_INCDIR
-/Cadence/xcelium/2409/24.09.007/tools/methodology/UVM/CDNS-1.1d/additions/sv
+/Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv
 -MESSAGES
 -UPDATE
 -XLLIBSTORE

@@ -1,0 +1,60 @@
+*** Message Type: info ***
+When: T3 Th05 06 16:52:42 +07 2025
+SimVision started.
+Version: TOOL:  simvision(64)   24.09-s007
+User: huyen_k66
+Host: edabk.tail0d59f2.ts.net
+Platform: Linux/x86_64/3.10.0-1160.119.1.el7.x86_64
+Started: T3 Th05 06 16:52:42 +07 2025
+Command: /Cadence/xcelium/2409/24.09.007/tools.lnx86/simvision/bin/64bit/simvision.exe
+Work Directory: /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb
+ 
+*** Message Type: info ***
+When: T3 Th05 06 16:52:43 +07 2025
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: T3 Th05 06 16:52:47 +07 2025
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: T3 Th05 06 16:52:48 +07 2025
+Create utility window: "Properties"
+ 
+*** Message Type: error ***
+When: T3 Th05 06 18:40:19 +07 2025
+property "-transattr" is not applicable to handle "@public@cf5"
+    while executing
+"util::expandStreamByAttr $dacH [util::expandAttrConvert name $flavor]"
+    ("***:(?i)Attr:.*" arm line 4)
+    invoked from within
+"# Compiled -- no source code available
+error "called a copy of a compiled script""
+    (procedure "util::getExpandChildren" line 1)
+    invoked from within
+"util::getExpandChildren $signalH $flavor"
+    ("default" arm line 69)
+    invoked from within
+"switch -- $type {
+  group - overlay {
+          set group [$_tree get $id -group]
+      foreach obj [$group get -objects] {
+                switch -- [util::entity type $o..."
+    (object "::.waveWindow0.work.user.waveset" method "::WaveSet::_populate" body line 2)
+    invoked from within
+"_populate internal $id"
+    ("default" arm line 27)
+    invoked from within
+"switch -- [type $id] {
+         overlay - group {
+          # do nothing
+       }
+      transaction {
+            # TODO_ASSOCARRAY - probably nothing for assocarray..."
+    (object "::.waveWindow0.work.user.waveset" method "::WaveSet::_dbRecallCallback" body line 13)
+    invoked from within
+"::.waveWindow0.work.user.waveset _dbRecallCallback event !recall"
+    (in namespace inscope "::WaveSet" script line 1)
+    invoked from within
+"namespace inscope ::WaveSet {::.waveWindow0.work.user.waveset _dbRecallCallback} event !recall"
+ 

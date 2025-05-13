@@ -1,0 +1,271 @@
+`include "constants.vams"
+
+nature Power
+  access = Pwr;
+  units = "W";
+  abstol = 1e-09;
+endnature
+
+
+nature Position
+  access = Pos;
+  units = "m";
+  abstol = 1e-06;
+  ddt_nature = Velocity;
+endnature
+
+
+nature Angular_Acceleration
+  access = Alpha;
+  units = "rads/s^2";
+  abstol = 1e-06;
+  idt_nature = Angular_Velocity;
+endnature
+
+
+nature Temperature
+  access = Temp;
+  units = "C";
+  abstol = 0.0001;
+endnature
+
+
+nature Velocity
+  access = Vel;
+  units = "m/s";
+  abstol = 1e-06;
+  idt_nature = Position;
+  ddt_nature = Acceleration;
+endnature
+
+
+nature Acceleration
+  access = Acc;
+  units = "m/s^2";
+  abstol = 1e-06;
+  idt_nature = Velocity;
+  ddt_nature = Impulse;
+endnature
+
+
+nature Flux
+  access = Phi;
+  units = "Wb";
+  abstol = 1e-09;
+  ddt_nature = Voltage;
+endnature
+
+
+nature Charge
+  access = Q;
+  units = "coul";
+  abstol = 1e-14;
+  ddt_nature = Current;
+endnature
+
+
+nature Impulse
+  access = Imp;
+  units = "m/s^3";
+  abstol = 1e-06;
+  idt_nature = Acceleration;
+endnature
+
+
+nature Voltage
+  access = V;
+  units = "V";
+  abstol = 1e-06;
+  idt_nature = Flux;
+endnature
+
+
+nature Angular_Force
+  access = Tau;
+  units = "N*m";
+  abstol = 1e-06;
+endnature
+
+
+nature Magneto_Motive_Force
+  access = MMF;
+  units = "A*turn";
+  abstol = 1e-12;
+endnature
+
+
+nature Force
+  access = F;
+  units = "N";
+  abstol = 1e-06;
+endnature
+
+
+nature Angular_Velocity
+  access = Omega;
+  units = "rads/s";
+  abstol = 1e-06;
+  idt_nature = Angle;
+  ddt_nature = Angular_Acceleration;
+endnature
+
+
+nature Current
+  access = I;
+  units = "A";
+  abstol = 1e-12;
+  idt_nature = Charge;
+endnature
+
+
+nature Angle
+  access = Theta;
+  units = "rads";
+  abstol = 1e-06;
+  ddt_nature = Angular_Velocity;
+endnature
+
+
+discipline kinematic_v
+  domain continuous;
+  potential Velocity;
+  flow Force;
+enddiscipline
+
+
+discipline rotational_omega
+  domain continuous;
+  potential Angular_Velocity;
+  flow Angular_Force;
+enddiscipline
+
+
+discipline electrical
+  domain continuous;
+  potential Voltage;
+  flow Current;
+enddiscipline
+
+
+discipline rotational
+  domain continuous;
+  potential Angle;
+  flow Angular_Force;
+enddiscipline
+
+
+discipline kinematic
+  domain continuous;
+  potential Position;
+  flow Force;
+enddiscipline
+
+
+discipline voltage
+  domain continuous;
+  potential Voltage;
+enddiscipline
+
+
+discipline magnetic
+  domain continuous;
+  potential Magneto_Motive_Force;
+  flow Flux;
+enddiscipline
+
+
+discipline thermal
+  domain continuous;
+  potential Temperature;
+  flow Power;
+enddiscipline
+
+
+discipline current
+  domain continuous;
+  potential Current;
+enddiscipline
+
+(* vams_to_va="/home/huyen_k66/Documents/PLL_UVM_MS/src_vams/VCO.vams" *)
+
+module worklib__VCO__vams__0x10000001_behavioral(vin, out);
+ //L=11
+parameter real Vmin = 0;
+//L=12
+parameter real Vmax = (Vmin+1);
+//L=13
+parameter real Fmin = 1600000000.0;
+//L=14
+parameter real Fmax = 2.2000000000000000e+09;
+//L=15
+parameter real Vamp = 1;
+//L=16
+parameter real ttol = (1e-06/Fmax);
+//L=17
+parameter real vtol = 1e-09;
+//L=19
+parameter integer min_pts_update = 32;
+//L=21
+parameter real tran_time = 9.999999999999999e-12;
+//L=23
+parameter real jitter_std_ui = 0;
+//L=8
+electrical vin;
+//L=9
+electrical out;
+//L=26
+real freq;
+//L=27
+real phase;
+//L=28
+integer n;
+//L=29
+integer seed;
+//L=30
+real jitter_rad;
+//L=31
+real dPhase;
+//L=32
+real phase_ideal;
+analog
+   begin
+//L=35
+    @ ((initial_step("all")))      begin
+//L=37
+      (seed = 671);
+//L=38
+      (n = 0);
+//L=39
+      (dPhase = 0);
+//L=40
+      (jitter_rad = ((jitter_std_ui*2)*3.141592653589793));
+    end
+//L=44
+    (freq = ((((V(vin) -Vmin)*(Fmax-Fmin))/(Vmax-Vmin))+Fmin));
+//L=46
+    ($bound_step((1/(min_pts_update*freq))));
+//L=47
+    if ((freq > Fmax)) //L=47
+    (freq = Fmax);
+//L=48
+    if ((freq < Fmin)) //L=48
+    (freq = Fmin);
+//L=49
+    (phase_ideal = (6.283185307179586*(idtmod(freq, 0.0, 1.0, -0.5))));
+//L=50
+    (phase = (phase_ideal+dPhase));
+//L=52
+    @ (((cross((phase_ideal+1.570796326794897), 1, ttol, vtol)) or (cross((phase_ideal-1.570796326794897), 1, ttol, vtol))))      begin
+//L=54
+      (dPhase = ($rdist_normal(seed, 0, jitter_rad)));
+    end
+//L=57
+    @ (((cross((phase+1.570796326794897), 1, ttol, vtol)) or (cross((phase-1.570796326794897), 1, ttol, vtol))))      begin
+//L=59
+      (n = ((phase >= -1.570796326794897) && (phase < 1.570796326794897)));
+    end
+//L=63
+    V(out)  <+ (transition((n?Vamp:0), 0, tran_time));
+  end
+
+endmodule

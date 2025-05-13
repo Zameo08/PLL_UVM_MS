@@ -9,10 +9,7 @@
 module osc_bridge_core (
   inout osc_clk,
   input osc_clk_p,
-  input osc_clk_n
-  // ,
-  // input freq_in,
-  // output wreal freq_out  
+  input osc_clk_n  
   );
   
   parameter diff_sel = 0;

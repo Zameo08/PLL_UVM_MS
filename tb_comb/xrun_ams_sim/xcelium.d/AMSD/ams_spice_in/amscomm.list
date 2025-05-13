@@ -41,6 +41,7 @@
 <global>:<mutual_inductor>:<BUILTIN>:<1>
 <global>:<node>:<BUILTIN>:<1>
 <global>:<nport>:<BUILTIN>:<1>
+<global>:<opticalnport>:<BUILTIN>:<1>
 <global>:<paramtest>:<BUILTIN>:<1>
 <global>:<pattern>:<BUILTIN>:<1>
 <global>:<pcccs>:<BUILTIN>:<1>

@@ -1,3 +1,4 @@
+
 // This *.f file is meant to be run in the xrun_ams_sim directory
 -64
 -timescale 1ns/1fs
@@ -7,7 +8,15 @@
 // options
 -uvm
 +UVM_VERBOSITY=UVM_HIGH
-+UVM_TESTNAME=default_sequence_ms_test
+// +UVM_TESTNAME=pll_base_test
+// +UVM_TESTNAME=default_sequence_ms_test
+// +UVM_TESTNAME=default_sequence_test
++UVM_TESTNAME=input_threshold_test
+// +UVM_TESTNAME=lock_time_test
+// +UVM_TESTNAME=output_threshold_test
+// +UVM_TESTNAME=phase_error_test
+// +UVM_TESTNAME=jitter_test
+// +UVM_TESTNAME=power_supply_test
 
 // include directories
 -incdir ../../uvc_lib/osc/sv/
@@ -22,7 +31,8 @@
 // Analog resource
 ../../uvc_lib/osc/sv/osc_bridge.sv
 // for SVRNM DUT
-../../uvc_lib/osc/vams/osc_bridge_core.vams
+// ../../uvc_lib/osc/vams/osc_bridge_core.vams
+../../uvc_lib/osc/sv/osc_bridge_core.sv
 
 // virtual interfaces
 ../../uvc_lib/osc/sv/osc_if.sv
@@ -60,65 +70,3 @@
 //* an equivalent feature to coercion, OR
 //* an update to the ../top.sv and ../../uvc_lib/osc/sv/osc_bridge.sv files
 -rnm_coerce detailed
-
-
-// // This *.f file is meant to be run in the xrun_ams_sim directory
-// -64
-// -timescale 1ns/1fs
-// -vtimescale 1ns/1fs
-// -access +rwc
-
-// // options
-// -uvm
-// +UVM_VERBOSITY=UVM_HIGH
-// +UVM_TESTNAME=default_sequence_ms_test
-
-// // include directories
-// -incdir ../../uvc_lib/osc/sv/
-// -incdir ../../uvc_lib/registers/sv/
-// -incdir ../../includes/
-// -incdir ../
-
-// // compile files (reordered for dependency resolution)
-// ../../includes/uvm_ms_pkg.sv
-// ../../uvc_lib/osc/sv/osc_if.sv
-// ../../uvc_lib/registers/sv/registers_if.sv
-// ../../uvc_lib/osc/sv/osc_pkg.sv
-// ../../uvc_lib/registers/sv/registers_pkg.sv
-
-
-// // Analog resource
-// ../../uvc_lib/osc/sv/osc_bridge.sv
-// ../../uvc_lib/osc/vams/osc_bridge_core.vams
-
-// // DUT
-// -incdir ../../src_vams/
-// ../../src_dig/registers.sv
-// ../../src_vams/CP.vams
-// ../../src_vams/frequency_divider.vams
-// ../../src_vams/PFD.vams
-// ../../src_vams/VCO.vams
-// ../../src_vams/pll.vams
-
-// // Testbench files
-// ../pll_scoreboard.sv
-// ../pll_tb.sv
-// ../test_lib.sv
-
-// // Top module
-// ../top.sv
-// -top top
-// +SVSEED=random
-
-// -define UVM_AMS
-
-// //-coverage U -covoverwrite
-// -input /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/probes_ams.tcl
-// -run 
-// //-gui
-// -exit
-
-// ../amscf.scs
-
-// // RNM Coercion
-// -rnm_coerce detailed

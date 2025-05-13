@@ -77,3 +77,101 @@ class default_sequence_ms_test extends pll_base_test;
   endfunction 
 
 endclass
+
+
+class input_threshold_test extends pll_base_test;
+  `uvm_component_utils(input_threshold_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",input_threshold_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
+
+class lock_time_test extends pll_base_test;
+  `uvm_component_utils(lock_time_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",lock_time_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
+
+
+class output_threshold_test extends pll_base_test;
+  `uvm_component_utils(output_threshold_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",output_threshold_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
+
+class phase_error_test extends pll_base_test;
+  `uvm_component_utils(phase_error_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",phase_error_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
+
+class jitter_test extends pll_base_test;
+  `uvm_component_utils(jitter_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",jitter_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
+
+class power_supply_test extends pll_base_test;
+  `uvm_component_utils(power_supply_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  function void build_phase(uvm_phase phase);
+    set_type_override_by_type(pll_tb::get_type(),pll_ms_tb::get_type());
+    super.build_phase(phase);
+    // Set the default sequence for the in_adpt and out_adpt
+    uvm_config_wrapper::set(this,"tb.freq_generator.agent.sequencer.run_phase", "default_sequence",power_supply_seq::get_type());
+    uvm_config_wrapper::set(this,"tb.registers.reg_agent.sequencer.run_phase", "default_sequence",registers_config::get_type());
+  endfunction 
+endclass
