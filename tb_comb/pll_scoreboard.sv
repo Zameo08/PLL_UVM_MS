@@ -34,6 +34,17 @@ class pll_scoreboard extends uvm_scoreboard;
   // Variable for comparison result
   bit match;
 
+    // Measurement flags
+  bit measure_freq = 1;
+  bit measure_lock_time = 0;
+  bit measure_jitter = 0;
+  bit measure_phase_error = 0;
+
+  // Variables for coverage
+  real lock_time;
+  real jitter_rms;
+  real phase_error;
+
   // Covergroup for input frequency
   covergroup input_sig_cg;
     option.per_instance = 1;
@@ -46,6 +57,21 @@ class pll_scoreboard extends uvm_scoreboard;
       bins HundredMHz = { [10e8    : 10e9  ] };
       bins GHz        = { [10e9    : 10e10 ] };
       bins Max        = { [10e10   : $     ] };
+    }
+    lock_time_cov: coverpoint lock_time {
+      bins Short  = { [0 : 50] };
+      bins Medium = { [50 : 100] };
+      bins Long   = { [100 : 500] };
+    }
+    jitter_cov: coverpoint jitter_rms {
+      bins Low    = { [0 : 5] };
+      bins Medium = { [5 : 10] };
+      bins High   = { [10 : 50] };
+    }
+    phase_error_cov: coverpoint phase_error {
+      bins Small  = { [-5 : 5] };
+      bins Medium = { [-10 : -5], [5 : 10] };
+      bins Large  = { [-360 : -10], [10 : 360] };
     }
   endgroup
 
@@ -61,9 +87,49 @@ class pll_scoreboard extends uvm_scoreboard;
     end
   endfunction
 
+  // Build phase
+  virtual function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    // Get measurement flags from config_db
+    void'(uvm_config_db#(bit)::get(this, "", "measure_freq", measure_freq));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_lock_time", measure_lock_time));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_jitter", measure_jitter));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_phase_error", measure_phase_error));
+  endfunction
+
   // Absolute value function
   function real abs(real A);
     return (A < 0) ? -A : A;
+  endfunction
+
+  virtual function bit check_lock_time(real lock_time_val);
+    if(measure_lock_time && lock_time_val > 100) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Lock time too high: %f ns", lock_time_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Lock time: %f ns", lock_time_val), UVM_LOW)
+    return 1;
+  endfunction 
+
+  function bit check_jitter(real jitter_val);
+    if (measure_jitter && jitter_val > 10) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Jitter RMS too high: %f ps", jitter_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Jitter RMS: %f ps", jitter_val), UVM_LOW)
+    return 1;
+  endfunction
+
+  function bit check_phase_error(real phase_error_val);
+    if (measure_phase_error && abs(phase_error_val) > 5) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Phase error too high: %f deg", phase_error_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Phase error: %f deg", phase_error_val), UVM_LOW)
+    return 1;
   endfunction
 
   // Compare function (virtual for override in derived class)
@@ -211,6 +277,21 @@ class pll_ms_scoreboard extends pll_scoreboard;
       bins Zero = { [-0.5 : 0.5] };
       bins Pos  = { [0.5 : 1.0] };
     }
+    lock_time_cov: coverpoint lock_time {
+      bins Short  = { [0 : 50] };
+      bins Medium = { [50 : 100] };
+      bins Long   = { [100 : 500] };
+    }
+    jitter_cov: coverpoint jitter_rms {
+      bins Low    = { [0 : 5] };
+      bins Medium = { [5 : 10] };
+      bins High   = { [10 : 50] };
+    }
+    phase_error_cov: coverpoint phase_error {
+      bins Small  = { [-5 : 5] };
+      bins Medium = { [-10 : -5], [5 : 10] };
+      bins Large  = { [-360 : -10], [10 : 360] };
+    }
   endgroup
 
   // Constructor
@@ -221,6 +302,38 @@ class pll_ms_scoreboard extends pll_scoreboard;
       ms_sig_cg.set_inst_name({get_full_name(), ".scoreboard_ms_sig_coverage"});
     end
   endfunction
+
+ // Check functions for measurements
+  function bit check_lock_time(real lock_time_val);
+    if (measure_lock_time && lock_time_val > 100) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Lock time too high: %f ns", lock_time_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Lock time: %f ns", lock_time_val), UVM_LOW)
+    return 1;
+  endfunction
+
+  function bit check_jitter(real jitter_val);
+    if (measure_jitter && jitter_val > 10) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Jitter RMS too high: %f ps", jitter_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Jitter RMS: %f ps", jitter_val), UVM_LOW)
+    return 1;
+  endfunction
+
+  function bit check_phase_error(real phase_error_val);
+    if (measure_phase_error && abs(phase_error_val) > 5) begin
+      `uvm_error("PKT_COMPARE", $sformatf("Phase error too high: %f deg", phase_error_val))
+      num_mismatch++;
+      return 0;
+    end
+    `uvm_info("PKT_COMPARE", $sformatf("Phase error: %f deg", phase_error_val), UVM_LOW)
+    return 1;
+  endfunction
+
 
   // Override compare function to include amplitude and bias
   virtual function bit comp_equal(real input_freq, real actual_freq);
@@ -290,6 +403,7 @@ class pll_ms_scoreboard extends pll_scoreboard;
   // Override write_osc_det for mixed-signal with added logging
   virtual function void write_osc_det(osc_transaction packet);
     osc_ms_transaction sb_packet;
+    bit match_measurements = 1;
     if (!$cast(sb_packet, packet.clone())) begin
       `uvm_fatal("CAST_ERROR", "Failed to cast osc_transaction to osc_ms_transaction")
     end
@@ -304,6 +418,9 @@ class pll_ms_scoreboard extends pll_scoreboard;
     freq_out = sb_packet.freq;
     ampl_out = sb_packet.ampl;
     bias_out = sb_packet.bias;
+    lock_time = sb_packet.lock_time; // For coverage
+    jitter_rms = sb_packet.jitter_rms; // For coverage
+    phase_error = sb_packet.phase_error; // For coverage
 
     if (freq_out == -1) begin
       `uvm_error("PKT_COMPARE", $sformatf("Frequency UNSTABLE at input freq=%f", freq_in_reg[0]))
@@ -319,12 +436,15 @@ class pll_ms_scoreboard extends pll_scoreboard;
     `uvm_info("SCOREBOARD", $sformatf("Comparing: input_freq=%f, output_freq=%f, input_ampl=%f, output_ampl=%f, input_bias=%f, output_bias=%f", 
                                       freq_in_reg[0], freq_out, ampl, ampl_out, bias, bias_out), UVM_MEDIUM)
     match = comp_equal(freq_in_reg.pop_front(), freq_out);
-    if (match) begin
-      num_match++;
-      `uvm_info("SCOREBOARD", "Mixed-signal comparison passed", UVM_MEDIUM)
-    end else begin
-      `uvm_info("SCOREBOARD", "Mixed-signal comparison failed", UVM_MEDIUM)
-    end
+
+    // if (match) begin
+    //   num_match++;
+    //   `uvm_info("SCOREBOARD", "Mixed-signal comparison passed", UVM_MEDIUM)
+    // end else begin
+    //   `uvm_info("SCOREBOARD", "Mixed-signal comparison failed", UVM_MEDIUM)
+    // end
+
+    
     total_match_check++;
   endfunction
 

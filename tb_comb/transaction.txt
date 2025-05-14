@@ -1,0 +1,699 @@
+Transaction 1: Transaction: req (osc_ms_transaction) @5537
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5537
+freq                         real                64    29443104.232415
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.105835
+bias                         real                64    0.030429
+enable                       integral            1     'h1
+delay                        real                64    0.473938
+duration                     integral            32    'h1e
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    0
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29443104.292481
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.105835
+bias           real                64    0.030429
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    161000000
+
+Transaction 2: Transaction: req (osc_ms_transaction) @5434
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5434
+freq                         real                64    30915613.846116
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.144944
+bias                         real                64    0.273216
+enable                       integral            1     'h1
+delay                        real                64    0.462413
+duration                     integral            32    'h16
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    200000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30915614.778332
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.144944
+bias           real                64    0.273216
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    361000000
+end_time       time                64    201000000
+
+Transaction 3: Transaction: req (osc_ms_transaction) @5410
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5410
+freq                         real                64    30701760.398949
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.188017
+bias                         real                64    -0.203186
+enable                       integral            1     'h1
+delay                        real                64    0.454574
+duration                     integral            32    'h19
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    400000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30701760.580180
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.188017
+bias           real                64    -0.203186
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    561000000
+end_time       time                64    401000000
+
+Transaction 4: Transaction: req (osc_ms_transaction) @5455
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5455
+freq                         real                64    30174275.318393
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.123647
+bias                         real                64    0.078511
+enable                       integral            1     'h1
+delay                        real                64    0.155260
+duration                     integral            32    'h18
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    600000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30174275.754016
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.155832
+bias           real                64    0.110696
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    761000000
+end_time       time                64    601000000
+
+Transaction 5: Transaction: req (osc_ms_transaction) @5479
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5479
+freq                         real                64    30308082.415380
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.192820
+bias                         real                64    -0.086574
+enable                       integral            1     'h1
+delay                        real                64    0.231956
+duration                     integral            32    'h1d
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    800000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30308081.649972
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.192820
+bias           real                64    -0.086574
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    961000000
+end_time       time                64    801000000
+
+Transaction 6: Transaction: req (osc_ms_transaction) @5408
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5408
+freq                         real                64    30742481.191454
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.096892
+bias                         real                64    -0.145961
+enable                       integral            1     'h1
+delay                        real                64    0.259098
+duration                     integral            32    'h1f
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    1000000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30742481.972147
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.144856
+bias           real                64    -0.097997
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    1161000000
+end_time       time                64    1001000000
+
+Transaction 7: Transaction: req (osc_ms_transaction) @5403
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5403
+freq                         real                64    29486274.555333
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.116330
+bias                         real                64    -0.264916
+enable                       integral            1     'h1
+delay                        real                64    0.457170
+duration                     integral            32    'h1c
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    1200000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29486274.787784
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.116330
+bias           real                64    -0.264916
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    1361000000
+end_time       time                64    1201000000
+
+Transaction 8: Transaction: req (osc_ms_transaction) @5396
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5396
+freq                         real                64    30455062.538151
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.102261
+bias                         real                64    -0.286626
+enable                       integral            1     'h1
+delay                        real                64    0.490422
+duration                     integral            32    'h18
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    1400000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30455061.972397
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.109296
+bias           real                64    -0.279591
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    1561000000
+end_time       time                64    1401000000
+
+Transaction 9: Transaction: req (osc_ms_transaction) @5494
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5494
+freq                         real                64    29201317.347603
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.124517
+bias                         real                64    -0.207455
+enable                       integral            1     'h1
+delay                        real                64    0.488009
+duration                     integral            32    'h1d
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    1600000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29201317.680259
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.124517
+bias           real                64    -0.207455
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    1761000000
+end_time       time                64    1601000000
+
+Transaction 10: Transaction: req (osc_ms_transaction) @5505
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5505
+freq                         real                64    29023984.496821
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.146964
+bias                         real                64    0.172719
+enable                       integral            1     'h1
+delay                        real                64    0.152433
+duration                     integral            32    'h15
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    1800000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29023983.794865
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.146964
+bias           real                64    0.172719
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    1961000000
+end_time       time                64    1801000000
+
+Transaction 11: Transaction: req (osc_ms_transaction) @5498
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5498
+freq                         real                64    29077322.264867
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.160944
+bias                         real                64    0.193208
+enable                       integral            1     'h1
+delay                        real                64    0.253401
+duration                     integral            32    'h1b
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    2000000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29077322.474078
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.160944
+bias           real                64    0.193208
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    2161000000
+end_time       time                64    2001000000
+
+Transaction 12: Transaction: req (osc_ms_transaction) @5491
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5491
+freq                         real                64    30742834.254239
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    0.986936
+bias                         real                64    0.196640
+enable                       integral            1     'h1
+delay                        real                64    0.071918
+duration                     integral            32    'h1a
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    2200000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30742833.553442
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.073940
+bias           real                64    0.109637
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    2361000000
+end_time       time                64    2201000000
+
+Transaction 13: Transaction: req (osc_ms_transaction) @5409
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5409
+freq                         real                64    30985362.130451
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.059492
+bias                         real                64    -0.058292
+enable                       integral            1     'h1
+delay                        real                64    0.341795
+duration                     integral            32    'h15
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    2400000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30985361.771451
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.059492
+bias           real                64    -0.058292
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    2561000000
+end_time       time                64    2401000000
+
+Transaction 14: Transaction: req (osc_ms_transaction) @5460
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5460
+freq                         real                64    30933100.576423
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.104330
+bias                         real                64    0.147745
+enable                       integral            1     'h1
+delay                        real                64    0.380497
+duration                     integral            32    'h1f
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    2600000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30933100.056515
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.104330
+bias           real                64    0.147745
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    2761000000
+end_time       time                64    2601000000
+
+Transaction 15: Transaction: req (osc_ms_transaction) @5420
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5420
+freq                         real                64    29148019.370055
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.061794
+bias                         real                64    -0.232052
+enable                       integral            1     'h1
+delay                        real                64    0.175905
+duration                     integral            32    'h1a
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    2800000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29148019.706860
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.083062
+bias           real                64    -0.210784
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    2961000000
+end_time       time                64    2801000000
+
+Transaction 16: Transaction: req (osc_ms_transaction) @5408
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5408
+freq                         real                64    29694574.038532
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.028266
+bias                         real                64    0.212707
+enable                       integral            1     'h1
+delay                        real                64    0.066311
+duration                     integral            32    'h1e
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    3000000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29694574.082706
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.045030
+bias           real                64    0.229471
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    3161000000
+end_time       time                64    3001000000
+
+Transaction 17: Transaction: req (osc_ms_transaction) @5393
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5393
+freq                         real                64    29397444.591061
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.011793
+bias                         real                64    -0.041477
+enable                       integral            1     'h1
+delay                        real                64    0.356477
+duration                     integral            32    'h18
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    3200000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    29397444.691795
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.020030
+bias           real                64    -0.033241
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    3361000000
+end_time       time                64    3201000000
+
+Transaction 18: Transaction: req (osc_ms_transaction) @5509
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5509
+freq                         real                64    30772393.033098
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.092252
+bias                         real                64    -0.296462
+enable                       integral            1     'h1
+delay                        real                64    0.174169
+duration                     integral            32    'h17
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    3400000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30772393.224411
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.092252
+bias           real                64    -0.296462
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    3561000000
+end_time       time                64    3401000000
+
+Transaction 19: Transaction: req (osc_ms_transaction) @5438
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5438
+freq                         real                64    30025250.031780
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.078945
+bias                         real                64    -0.134075
+enable                       integral            1     'h1
+delay                        real                64    0.392044
+duration                     integral            32    'h16
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    3600000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30025249.433258
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.085598
+bias           real                64    -0.127422
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    3761000000
+end_time       time                64    3601000000
+
+Transaction 20: Transaction: req (osc_ms_transaction) @5468
+----------------------------------------
+Name                           Type                Size  Value
+---------------------------------------------------------------------------------------------------------------------------
+req                            osc_ms_transaction  -     @5468
+freq                         real                64    30884755.707235
+data_type                    osc_ms_data_type_e  1     OSC_MS_DRIVE
+ampl                         real                64    1.050156
+bias                         real                64    -0.223323
+enable                       integral            1     'h1
+delay                        real                64    0.013195
+duration                     integral            32    'h18
+measured_freq                real                64    0.000000
+lock_time                    real                64    0.000000
+jitter_rms                   real                64    0.000000
+phase_error                  real                64    0.000000
+begin_time                   time                64    3800000000
+depth                        int                 32    'd2
+parent sequence (name)       string              19    input_threshold_seq
+parent sequence (full name)  string              66    uvm_test_top.tb.freq_generator.agent.sequencer.input_threshold_seq
+sequencer                    string              46    uvm_test_top.tb.freq_generator.agent.sequencer
+freq           real                64    30884754.957575
+data_type      osc_ms_data_type_e  1     OSC_MS_SAMPLE
+ampl           real                64    1.064551
+bias           real                64    -0.208928
+enable         integral            1     'h0
+delay          real                64    0.000000
+duration       integral            32    'h0
+measured_freq  real                64    0.000000
+lock_time      real                64    0.000000
+jitter_rms     real                64    0.000000
+phase_error    real                64    0.000000
+begin_time     time                64    3961000000
+end_time       time                64    3801000000
+

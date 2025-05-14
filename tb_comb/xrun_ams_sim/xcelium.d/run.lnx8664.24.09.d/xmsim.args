@@ -12,7 +12,7 @@
 /Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
 /Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
-+UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 -SVSEED
 random
 -INPUT
@@ -22,14 +22,14 @@ random
 -AMSINPUT
 -ANALOGCONTROL
 ../amscf.scs
-+UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 -MESSAGES
 -SV_LIB
 /Cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
 +EMGRLOG
-logs/input_threshold_test.log
+logs/lock_time_test.log
 -XLSTIME
-1747069092
+1747230759
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.24.09.d

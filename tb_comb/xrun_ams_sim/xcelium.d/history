@@ -2,4 +2,4 @@
 // File created by:  xrun
 // Do not modify this file
 
-s1::(12May2025:12:58:13):( xrun -f ../xrun_ams.f +UVM_TESTNAME=input_threshold_test -logfile logs/input_threshold_test.log )&&(./xcelium.d/env.d/env.history.12May2025_12_58_13)
+s1::(14May2025:09:52:39):( xrun -f ../xrun_ams.f +UVM_TESTNAME=lock_time_test -logfile logs/lock_time_test.log )&&(./xcelium.d/env.d/env.history.14May2025_09_52_39)

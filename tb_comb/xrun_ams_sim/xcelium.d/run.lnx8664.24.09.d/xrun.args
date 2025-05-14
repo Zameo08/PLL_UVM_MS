@@ -4,6 +4,6 @@
 //
 -f
 ../xrun_ams.f
-+UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 -logfile
-logs/input_threshold_test.log
+logs/lock_time_test.log

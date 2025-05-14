@@ -11,8 +11,8 @@
 // +UVM_TESTNAME=pll_base_test
 // +UVM_TESTNAME=default_sequence_ms_test
 // +UVM_TESTNAME=default_sequence_test
-+UVM_TESTNAME=input_threshold_test
-// +UVM_TESTNAME=lock_time_test
+// +UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 // +UVM_TESTNAME=output_threshold_test
 // +UVM_TESTNAME=phase_error_test
 // +UVM_TESTNAME=jitter_test

@@ -1,0 +1,2 @@
+#e1(14May2025:09:52:39): source ./xcelium.d/env.d/env.history.14May2025_09_52_39
+s1(14May2025:09:52:39):  xrun -f ../xrun_ams.f +UVM_TESTNAME=lock_time_test -logfile logs/lock_time_test.log 

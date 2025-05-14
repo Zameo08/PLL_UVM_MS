@@ -34,6 +34,13 @@ class osc_monitor extends uvm_monitor;
   real period;
   real tupd;
   real freq_tol = 10e6; // unit: Hz
+
+  // //measurement flags (configurable by test case)
+  // bit measure_freq = 1;
+  // bit measure_lock_time = 0;
+  // bit measure_jitter = 0;
+  // bit measure_phase_error = 0;
+
   
   osc_transaction osc_clk_transaction, osc_clk_p_transaction;
    
@@ -45,6 +52,10 @@ class osc_monitor extends uvm_monitor;
     `uvm_field_int(num_col_in, UVM_ALL_ON)
     `uvm_field_int(num_col_out, UVM_ALL_ON)
     `uvm_field_int(diff_sel, UVM_ALL_ON)
+    // `uvm_field_int(measure_freq, UVM_ALL_ON)
+    // `uvm_field_int(measure_lock_time, UVM_ALL_ON)
+    // `uvm_field_int(measure_jitter, UVM_ALL_ON)
+    // `uvm_field_int(measure_phase_error, UVM_ALL_ON)
   `uvm_component_utils_end
 
   // Constructor - required syntax for UVM automation and utilities
@@ -64,6 +75,11 @@ class osc_monitor extends uvm_monitor;
   
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
+    // get measure configuration from config_db
+    // uvm_config_db#(bit)::get(this,"", "measure_freq", measure_freq);
+    // uvm_config_db#(bit)::get(this,"", "measure_lock_time", measure_lock_time);
+    // uvm_config_db#(bit)::get(this,"", "measure_jitter", measure_jitter);
+    // uvm_config_db#(bit)::get(this,"", "measure_phase_error", measure_phase_error);
   endfunction: build_phase
   
   function void connect_phase(uvm_phase phase);
@@ -168,6 +184,7 @@ class osc_monitor extends uvm_monitor;
 
   endtask : collect_DUT_output
   
+
   // UVM report() phase
   function void report_phase(uvm_phase phase);
     if(diff_sel == 1)
@@ -198,22 +215,25 @@ Description   : This file implements the source monitor.
 //
 //------------------------------------------------------------------------------
 
+// File: osc_ms_source_monitor.sv
 class osc_ms_source_monitor extends osc_monitor;
 
   // Virtual Interface for monitoring DUT signals
   protected osc_bridge_proxy bridge_proxy;
   // Count transactions collected
   int num_col;
- 
-  // The following two bits are used to control whether checks and coverage are
-  // done in the monitor
-  bit checks_enable       = 1;
-  bit coverage_enable     = 1;
-  bit use_vector_coverage = 0;
-  bit use_real_coverage   = 1;
 
-//  // This TLM port is used to connect the monitor to the scoreboard
-//  uvm_analysis_port #(osc_ms_transaction) item_ms_collected_port;
+  // Measurement flags (configurable by test case)
+  bit measure_freq = 1;
+  bit measure_lock_time = 0;
+  bit measure_jitter = 0;
+  bit measure_phase_error = 0;
+
+  // Control for checks and coverage
+  bit checks_enable = 1;
+  bit coverage_enable = 1;
+  bit use_vector_coverage = 0;
+  bit use_real_coverage = 1;
 
   // Current monitored transaction
   protected osc_ms_transaction transaction;
@@ -232,44 +252,25 @@ class osc_ms_source_monitor extends osc_monitor;
   covergroup vector_bin_cg;
     option.per_instance = 1;
     data_type : coverpoint transaction.data_type;
-    //phase     : coverpoint phase_vec;
     amplitude : coverpoint ampl_vec {
-      // 0-0.001
-      bins MilliVolts        = {[0:                   64'h3F50624DD2F1A9FC]};
-      // 0.001-0.1
+      bins MilliVolts        = {[0:64'h3F50624DD2F1A9FC]};
       bins TenMilliVolts     = {[64'h3F50624DD2F1A9FC:64'h3FB999999999999A]};
-      // 0.1-0.9
       bins HundredMilliVolts = {[64'h3FB999999999999A:64'h3FECCCCCCCCCCCCD]};
-      // 0.9-1.4
       bins OneVolt           = {[64'h3FECCCCCCCCCCCCD:64'h3FF6666666666666]};
-      // 1.4-1.9
       bins TwoVolts          = {[64'h3FF6666666666666:64'h3FFE666666666666]};
-      // 1.9-5
       bins UnderFiveVolts    = {[64'h3FFE666666666666:64'h4014000000000000]};
-      // 5-10
       bins TenVolts          = {[64'h4014000000000000:64'h4024000000000000]};
-      // 10-10e5
       bins TenPlusVolts      = {[64'h4024000000000000:64'h412E848000000000]};
-      // 10e5 plus           
       bins Max               = {[64'h412E848000000000:$]};
-    } 
-    //bias      : coverpoint bias_vec;
+    }
     frequency : coverpoint freq_vec {
-      // 0:    0.9
-      bins DC         = {[0:                   64'h3FECCCCCCCCCCCCD]};
-      // 1:    10e3
+      bins DC         = {[0:64'h3FECCCCCCCCCCCCD]};
       bins Hz         = {[64'h3FECCCCCCCCCCCCD:64'h40C3880000000000]};
-      // 10e3: 10e6
       bins KHz        = {[64'h40C3880000000000:64'h416312D000000000]};
-      // 10e6: 10e7
       bins MHz        = {[64'h416312D000000000:64'h4197D78400000000]};
-      // 10e7: 10e8
       bins TenMhz     = {[64'h4197D78400000000:64'h41CDCD6500000000]};
-      // 10e8: 10e9
       bins HundredMhz = {[64'h41CDCD6500000000:64'h4202A05F20000000]};
-      // 10e9: 10e10
       bins GHz        = {[64'h4202A05F20000000:64'h42374876E8000000]};
-      // 10e10 plus
       bins Max        = {[64'h42374876E8000000:$]};
     }
   endgroup : vector_bin_cg
@@ -278,12 +279,15 @@ class osc_ms_source_monitor extends osc_monitor;
   `uvm_component_utils_begin(osc_ms_source_monitor)
     `uvm_field_int(checks_enable, UVM_DEFAULT)
     `uvm_field_int(coverage_enable, UVM_DEFAULT)
+    `uvm_field_int(measure_freq, UVM_ALL_ON)
+    `uvm_field_int(measure_lock_time, UVM_ALL_ON)
+    `uvm_field_int(measure_jitter, UVM_ALL_ON)
+    `uvm_field_int(measure_phase_error, UVM_ALL_ON)
   `uvm_component_utils_end
 
-  // Constructor - required syntax for UVM automation and utilities
+  // Constructor
   function new (string name, uvm_component parent);
     super.new(name, parent);
-    // Create the covergroup only if coverage is enabled
     void'(get_config_int("coverage_enable", coverage_enable));
     if (coverage_enable) begin
       vector_bin_cg = new();
@@ -297,11 +301,25 @@ class osc_ms_source_monitor extends osc_monitor;
   extern virtual protected function void perform_checks();
   extern virtual protected function void perform_coverage();
   extern virtual function void report_phase(uvm_phase phase);
+  extern virtual protected function void perform_measurements();
+  extern virtual protected task meas_lock_time(output real lock_time);
+  extern virtual protected task meas_jitter(output real jitter_rms);
+  extern virtual protected task meas_phase_error(output real phase_error);
+  extern virtual protected task meas_frequency(output real out_freq);
+  extern virtual protected function void log_measure();
 
+  // transaction.lock_time = meas_lock_time();
+  // transaction.jitter_rms = meas_jitter();
+  // transaction.measured_freq = meas_frequency();
+  // transaction.phase_error = meas_phase_error();
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(osc_bridge_proxy)::get(this,"","bridge_proxy",bridge_proxy))
-      `uvm_error(get_type_name(),"bridge proxy not configured");
+    if (!uvm_config_db#(osc_bridge_proxy)::get(this, "", "bridge_proxy", bridge_proxy))
+      `uvm_error(get_type_name(), "bridge proxy not configured");
+    void'(uvm_config_db#(bit)::get(this, "", "measure_freq", measure_freq));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_lock_time", measure_lock_time));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_jitter", measure_jitter));
+    void'(uvm_config_db#(bit)::get(this, "", "measure_phase_error", measure_phase_error));
   endfunction
 
   // UVM run() phase
@@ -312,37 +330,28 @@ class osc_ms_source_monitor extends osc_monitor;
 
 endclass : osc_ms_source_monitor
 
-  // UVM run() phase
   task osc_ms_source_monitor::run();
     fork
       collect_transaction();
     join_none
   endtask : run
 
-  /***************************************************************************
-   Most of the waveform work is done at the AMS level, but this method still
-   needs to be modified to initiate sampling and collect the results for coverage.
-   ***************************************************************************/
-    
   task osc_ms_source_monitor::collect_transaction();
-    // This monitor re-uses its data items for ALL transactions
     transaction = osc_ms_transaction::type_id::create("transaction", this);
     forever begin
       @(posedge bridge_proxy.sampling_done);
-      // Begin transaction recording
       void'(begin_tr(transaction, "analog_clock source Monitor"));
       transaction.data_type = OSC_MS_SAMPLE;
       transaction.ampl = bridge_proxy.ampl_out;
       transaction.bias = bridge_proxy.bias_out;
       transaction.freq = bridge_proxy.freq_out;
       `uvm_info(get_type_name(), 
-        $psprintf("source transaction collected :\n%s", 
-        transaction.sprint()), UVM_LOW) //Temporarily dropped verbosity
+        $psprintf("source transaction collected :\n%s", transaction.sprint()), UVM_LOW);
       if (checks_enable)
-         perform_checks();
+        perform_checks();
       if (coverage_enable)
-         perform_coverage();
-      // Send transaction to scoreboard via TLM write()
+        perform_coverage();
+      perform_measurements();
       item_collected_port.write(transaction);
       num_col++;
       fork
@@ -355,32 +364,120 @@ endclass : osc_ms_source_monitor
           disable wait_for_sampling_done;
         end
       join
-      // End transaction recording
       end_tr(transaction);
     end
   endtask : collect_transaction
-  
-  /***************************************************************************
-   Optionally add protocol checks within the perform_checks() method. 
-   ***************************************************************************/
 
-  // perform_osc_ms_transaction_checks
   function void osc_ms_source_monitor::perform_checks();
-    // Add checks here
+    // Add protocol checks here
   endfunction : perform_checks
-  
-  // Triggers coverage events
+
   function void osc_ms_source_monitor::perform_coverage();
     ampl_vec = $realtobits(transaction.ampl);
     bias_vec = $realtobits(transaction.bias);
     freq_vec = $realtobits(transaction.freq);
-    `uvm_info(get_type_name(),"Gathering analog coverage via bit vectors", UVM_MEDIUM)
+    `uvm_info(get_type_name(), "Gathering analog coverage via bit vectors", UVM_MEDIUM);
     vector_bin_cg.sample();
   endfunction : perform_coverage
 
-  // UVM report() phase
   function void osc_ms_source_monitor::report_phase(uvm_phase phase);
+    log_measure();
     `uvm_info(get_type_name(), 
       $sformatf("\nReport: ANALOG_CLOCK source monitor collected %0d transactions", num_col),
-      UVM_LOW)
-  endfunction 
+      UVM_LOW);
+  endfunction
+
+  function void osc_ms_source_monitor::perform_measurements();
+  // `uvm_info(get_type_name(), 
+  //   $sformatf("\nReport: ANALOG_CLOCK source monitor collected %0d transactions", num_col),
+  //   UVM_LOW);
+endfunction
+  // task osc_ms_source_monitor::perform_measurements(output real lock_time, jitter_rms, phase_error, freq);
+    
+  //   if (measure_lock_time) begin
+  //     meas_lock_time(lock_time);
+  //     transaction.lock_time = lock_time;
+  //   end
+  //   if (measure_jitter) begin
+  //     meas_jitter(jitter_rms);
+  //     transaction.jitter_rms = jitter_rms;
+  //   end
+  //   if (measure_phase_error) begin
+  //     meas_phase_error(phase_error);
+  //     transaction.phase_error = phase_error;
+  //   end
+  //   if (measure_freq) begin
+  //     meas_frequency(freq);
+  //     transaction.measured_freq = freq;
+  //   end
+  //   log_measure();
+  // endtask
+
+  task osc_ms_source_monitor::meas_lock_time(output real lock_time);
+    real start_time;
+    bit locked = 0;
+    real current_freq;
+    start_time = $realtime;
+    while (!locked && ($realtime - start_time < 1e6)) begin
+      @(posedge vif.osc_clk);
+      meas_frequency(current_freq);
+      if (abs(current_freq - transaction.freq) < 0.01 * transaction.freq) begin
+        locked = 1;
+      end
+    end
+    lock_time = ($realtime - start_time) * 1e-9; // Convert to seconds
+  endtask
+
+  task osc_ms_source_monitor::meas_jitter(output real jitter_rms);
+    real periods[$];
+    real avg_period, sum_sq_diff;
+    real sum_periods = 0.0;
+    int num_samples = 100;
+    for (int i = 0; i < num_samples; i++) begin
+      real start_time = $realtime;
+      @(posedge vif.osc_clk);
+      periods.push_back(($realtime - start_time) * 1e-9);
+    end
+    
+    foreach (periods[i]) begin
+      sum_periods += periods[i];
+    end
+    avg_period = sum_periods / num_samples;
+    sum_sq_diff = 0;
+    foreach (periods[i]) begin
+      sum_sq_diff += (periods[i] - avg_period) ** 2;
+    end
+    jitter_rms = $sqrt(sum_sq_diff / num_samples) * 1e12; // Jitter RMS (ps)
+  endtask
+
+  task osc_ms_source_monitor::meas_phase_error(output real phase_error);
+    real ref_time, pll_time;
+    @(posedge vif.osc_clk);
+    ref_time = $realtime;
+    @(posedge vif.osc_clk);
+    pll_time = $realtime;
+    phase_error = ((pll_time - ref_time) * 360.0 / (1e9 / transaction.measured_freq)); // Degrees
+  endtask
+
+  task osc_ms_source_monitor::meas_frequency(output real out_freq);
+    real start_time, end_time;
+    int cycle_count = 10;
+    @(posedge vif.osc_clk);
+    start_time = $realtime;
+    repeat(cycle_count) @(posedge vif.osc_clk);
+    end_time = $realtime;
+    out_freq = (cycle_count / ((end_time - start_time) * 1e-9)); // Hz
+  endtask
+
+  function void osc_ms_source_monitor::log_measure();
+    string log_msg = "";
+    if (measure_freq)
+      log_msg = $sformatf("%s [REPORT_MONITOR]_Freq=%0f Hz", log_msg, transaction.measured_freq);
+    if (measure_lock_time)
+      log_msg = $sformatf("%s [REPORT_MONITOR]_Lock_time=%0f ns", log_msg, transaction.lock_time);
+    if (measure_jitter)
+      log_msg = $sformatf("%s [REPORT_MONITOR]_Jitter_rms=%0f ps", log_msg, transaction.jitter_rms);
+    if (measure_phase_error)
+      log_msg = $sformatf("%s [REPORT_MONITOR]_Phase_error=%0f deg", log_msg, transaction.phase_error);
+    `uvm_info("MONITOR", $sformatf("[REPORT_MONITOR]_Measurement: %s", log_msg), UVM_MEDIUM);
+  endfunction

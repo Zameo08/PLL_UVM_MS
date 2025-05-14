@@ -1,0 +1,67 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module signal_sampling(in, out);
+    input in;
+    output out;
+    electrical in, out;
+
+    parameter real v_threshold = 0.9; // Ngưỡng 90% (tỷ lệ so với Vpeak)
+    parameter real period = 1e-6;     // Chu kỳ tín hiệu (giả sử 1us)
+    parameter integer num_cycles = 100; // Số chu kỳ lấy mẫu
+
+    real v_peak;          // Giá trị đỉnh của tín hiệu
+    real v_th;            // Ngưỡng thực tế (v_peak * v_threshold)
+    real time_prev;       // Thời điểm vượt ngưỡng trước đó
+    real time_diff[0:99]; // Mảng lưu hiệu thời gian (100 chu kỳ)
+    integer count;        // Đếm số lần vượt ngưỡng
+    integer cycle_count;  // Đếm số chu kỳ
+
+    analog begin
+        @(initial_step) begin
+            v_peak = 0.0;
+            time_prev = 0.0;
+            count = 0;
+            cycle_count = 0;
+            for (integer i = 0; i < 100; i = i + 1) begin
+                time_diff[i] = 0.0;
+            end
+        end
+
+        // Tìm giá trị đỉnh của tín hiệu trong chu kỳ đầu tiên
+        if ($abstime < period) begin
+            if (V(in) > v_peak) begin
+                v_peak = V(in);
+            end
+        end else if ($abstime < 2*period) begin
+            v_th = v_peak * v_threshold; // Tính ngưỡng 90%
+        end
+
+        // Phát hiện vượt ngưỡng và tính hiệu thời gian
+        @(cross(V(in) - v_th, +1)) begin
+            if (cycle_count < num_cycles && $abstime > period) begin
+                if (count % 2 == 0) begin
+                    time_prev = $abstime; // Lưu thời điểm hiện tại
+                end else begin
+                    time_diff[cycle_count] = $abstime - time_prev; // Tính hiệu
+                    cycle_count = cycle_count + 1;
+                end
+                count = count + 1;
+            end
+        end
+
+        // Xuất kết quả ra node out (ví dụ: giá trị thời gian cuối cùng)
+        if (cycle_count > 0) begin
+            V(out) = time_diff[cycle_count-1];
+        end else begin
+            V(out) = 0.0;
+        end
+    end
+
+    // In kết quả sau khi hoàn tất
+    analog final begin
+        for (integer i = 0; i < num_cycles; i = i + 1) begin
+            $strobe("Cycle %d: Time difference = %e s", i, time_diff[i]);
+        end
+    end
+endmodule

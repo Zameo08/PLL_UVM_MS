@@ -1,2 +1,0 @@
-#e1(12May2025:12:58:13): source ./xcelium.d/env.d/env.history.12May2025_12_58_13
-s1(12May2025:12:58:13):  xrun -f ../xrun_ams.f +UVM_TESTNAME=input_threshold_test -logfile logs/input_threshold_test.log 

@@ -212,10 +212,29 @@ class input_threshold_seq extends osc_base_ms_seq;
       `uvm_info(get_type_name(),
          $sformatf("Running... (%0d input_threshold_transaction sequences)",itr), UVM_HIGH)
 //      last_freq = 1e6;
+//       for(int i = 0; i < itr; i++) begin
+//         `uvm_create(req)
+//         if(!req.randomize()) $`uvm_fatal()
+// //        void'(req.randomize() with {req.data_type == OSC_MS_DRIVE; req.enable == 1; req.prev_freq == last_freq;});
+//         void'(req.randomize() with {req.data_type == OSC_MS_DRIVE; req.enable == 1; req.ampl inside {[0.8:1.2]}; req.bias inside {[-0.3:0.3]}; req.duration == 30; req.delay == 0.5;});
+//      `uvm_info(get_type_name(), $sformatf("Sending transaction %0d: %s", i, req.convert2string()), UVM_LOW)
+//         `uvm_send(req)
          for(int i = 0; i < itr; i++) begin
           `uvm_create(req)
+          if (!req.randomize() with {
+              req.data_type == OSC_MS_DRIVE;
+              req.enable == 1;
+              req.ampl inside {[0.8:1.2]};
+              req.bias inside {[-0.3:0.3]};
+              // req.duration == 30;
+              req.delay inside {[0:0.5]};
+          }) begin
+            `uvm_error(get_type_name(), $sformatf("Randomization failed at iteration %0d", i))
+            continue; // bỏ qua iteration này và tiếp tục vòng lặp
+          end
+
           //enable, delay, duration are all = 0??
-          void'(req.randomize() with {req.data_type == OSC_MS_DRIVE; req.enable == 1; req.ampl inside {[0.8:1.2]}; req.bias inside {[-0.3:0.3]}; req.duration == 30; req.delay == 0.5;});
+          // void'(req.randomize() with {req.data_type == OSC_MS_DRIVE; req.enable == 1; req.ampl inside {[0.8:1.2]}; req.bias inside {[-0.3:0.3]}; req.duration == 30; req.delay == 0.5;});
           `uvm_info(get_type_name(), $sformatf("Sending transaction %0d: %s", i, req.convert2string()), UVM_LOW)
           `uvm_send(req)
         end

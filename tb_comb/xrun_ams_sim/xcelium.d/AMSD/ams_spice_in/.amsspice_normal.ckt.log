@@ -5,26 +5,26 @@ Copyright (C) 1989-2025 Cadence Design Systems, Inc. All rights reserved worldwi
 
 Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
 
-User: huyen_k66   Host: edabk   HostID: 6F64197F   PID: 7270
-Memory  available: 349.6320 GB  physical: 405.4476 GB
+User: huyen_k66   Host: edabk   HostID: 6F64197F   PID: 26396
+Memory  available: 334.5820 GB  physical: 405.4476 GB
 Linux   : CentOS Linux release 7 (Core)
 CPU Type: AMD EPYC 7402 24-Core Processor
         Socket: Processors [Frequency]
-        0:       0 [1500.0],  1 [1500.0],  2 [1500.0],  3 [1500.0],  4 [1500.0]
-                 5 [1500.0],  6 [1500.0],  7 [1500.0],  8 [2800.0],  9 [1500.0]
-                10 [2400.0], 11 [1500.0], 12 [2400.0], 13 [1500.0], 14 [1500.0]
-                15 [1500.0], 16 [1500.0], 17 [1500.0], 18 [2400.0], 19 [1500.0]
+        0:       0 [1500.0],  1 [2400.0],  2 [1500.0],  3 [1500.0],  4 [1500.0]
+                 5 [1500.0],  6 [1500.0],  7 [1500.0],  8 [1500.0],  9 [1500.0]
+                10 [1500.0], 11 [1500.0], 12 [1500.0], 13 [1500.0], 14 [1500.0]
+                15 [1500.0], 16 [1500.0], 17 [1500.0], 18 [1500.0], 19 [1500.0]
                 20 [1500.0], 21 [1500.0], 22 [1500.0], 23 [1500.0]
-        1:      24 [2800.0], 25 [1500.0], 26 [2800.0], 27 [1500.0], 28 [2800.0]
-                29 [1500.0], 30 [1500.0], 31 [2400.0], 32 [1500.0], 33 [2800.0]
-                34 [2800.0], 35 [1500.0], 36 [1500.0], 37 [1500.0], 38 [1500.0]
-                39 [2400.0], 40 [2400.0], 41 [1500.0], 42 [2400.0], 43 [1500.0]
-                44 [1500.0], 45 [1500.0], 46 [1500.0], 47 [2800.0]
+        1:      24 [1500.0], 25 [1500.0], 26 [1500.0], 27 [1500.0], 28 [1500.0]
+                29 [1500.0], 30 [1500.0], 31 [1500.0], 32 [1500.0], 33 [1500.0]
+                34 [1500.0], 35 [1500.0], 36 [1500.0], 37 [1500.0], 38 [1500.0]
+                39 [1500.0], 40 [1500.0], 41 [1500.0], 42 [1500.0], 43 [1500.0]
+                44 [1500.0], 45 [1500.0], 46 [1500.0], 47 [1500.0]
         
-System load averages (1min, 5min, 15min) : 7.6 %, 5.5 %, 5.2 %
+System load averages (1min, 5min, 15min) : 1.2 %, 1.0 %, 2.1 %
 
 
-Simulating `./xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt' on edabk at 12:58:19 PM, Mon May 12, 2025 (process id: 7270).
+Simulating `./xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt' on edabk at 9:52:45 AM, Wed May 14, 2025 (process id: 26396).
 Current working directory: /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim
 Environment variable:
     SPECTRE_DEFAULTS=
@@ -37,7 +37,7 @@ Command line:
         -I../ -token{token}
 
 Licensing Information:
-[12:58:19.345553] Configured Lic search path (22.01-s002): 5280@192.168.32.10
+[09:52:46.345553] Configured Lic search path (22.01-s002): 5280@192.168.32.10
 
 Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
 Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libphilips_I_sh.so ...
@@ -47,12 +47,12 @@ Loading /Cadence/SPECTRE231/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
 Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/xrun_ams_sim/xcelium.d/AMSD/ams_spice_in/.amsspice_normal.ckt
 Reading file:  /Cadence/SPECTRE231/tools.lnx86/spectre/etc/configs/spectre.cfg
 Reading file:  /home/huyen_k66/Documents/PLL_UVM_MS/tb_comb/amscf.scs
-Time for NDB Parsing: CPU = 175.933 ms, elapsed = 228.175 ms.
-Time accumulated: CPU = 323.306 ms, elapsed = 228.183 ms.
+Time for NDB Parsing: CPU = 176.827 ms, elapsed = 537.719 ms.
+Time accumulated: CPU = 331.899 ms, elapsed = 537.726 ms.
 Peak resident memory used = 102 Mbytes.
 
 Licensing Information:
 Lic Summary:
-[12:58:19.321434] Cdslmd servers:5280@192.168.32.10
-[12:58:19.321450] Feature usage summary:
+[09:52:46.184536] Cdslmd servers:5280@192.168.32.10
+[09:52:46.184552] Feature usage summary:
 

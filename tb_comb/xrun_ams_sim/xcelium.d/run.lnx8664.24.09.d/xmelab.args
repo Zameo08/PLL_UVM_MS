@@ -12,14 +12,14 @@
 1ns/1fs
 -ACCESS
 +rwc
-+UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 -AMSINPUT
 ../amscf.scs
 -ANALOGCONTROL
 ../amscf.scs
 -RNM_COERCE
 detailed
-+UVM_TESTNAME=input_threshold_test
++UVM_TESTNAME=lock_time_test
 -MESSAGES
 top
 -AMSELAB
